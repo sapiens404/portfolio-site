@@ -202,7 +202,7 @@ img {
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
     letter-spacing: 1px;
 }
 
@@ -226,7 +226,7 @@ img {
     white-space: nowrap;
     position: relative;
     z-index: 2;
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 
