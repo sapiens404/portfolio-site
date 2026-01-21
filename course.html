@@ -330,6 +330,9 @@
         </div>
     </div>
 
+    <!-- Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <footer style="margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; text-align: center;">
         <p>&copy; 2024 Ritu Raj Designs. All rights reserved.</p>
     </footer>
@@ -344,20 +347,51 @@
         }
 
         function enrollUser() {
+            // Check if user is already logged in/enrolled (Simulated)
+            if (localStorage.getItem('course_enrolled') === 'true') {
+                window.location.href = 'course-player.html';
+                return;
+            }
             document.getElementById('payment-modal').style.display = 'flex';
         }
 
         function completePayment() {
-            const btn = document.querySelector('#payment-modal .enroll-btn');
-            const originalText = btn.innerText;
-            btn.innerText = "Processing...";
+            // Initialize Razorpay Options
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
+                "amount": "1300", // Amount is in currency subunits. Default currency is INR. Hence, 1300 = 13 INR
+                "currency": "INR",
+                "name": "Ritu Raj Designs",
+                "description": "Design Mastery Course Enrollment",
+                "image": "https://portfolio-site-peach-mu.vercel.app/assets/images/ritu_profile_masked.png",
+                "handler": function (response) {
+                    // This executes AFTER successful payment
+                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
 
-            setTimeout(() => {
-                alert("🎉 Success! Welcome to the course.\n\nRedirecting you to the learning portal...");
-                document.getElementById('payment-modal').style.display = 'none';
-                btn.innerText = originalText;
-                window.location.href = 'course-player.html';
-            }, 2000);
+                    // Grant Access
+                    localStorage.setItem('course_enrolled', 'true');
+
+                    // Redirect
+                    window.location.href = 'course-player.html';
+                },
+                "prefill": {
+                    "name": document.querySelector('#payment-modal input[type="text"]').value,
+                    "email": document.querySelector('#payment-modal input[type="email"]').value,
+                    "contact": ""
+                },
+                "theme": {
+                    "color": "#00ff66"
+                }
+            };
+
+            // Create and Open Payment Window
+            var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response) {
+                alert("Payment Failed. Reason: " + response.error.reason);
+            });
+
+            document.getElementById('payment-modal').style.display = 'none';
+            rzp1.open();
         }
     </script>
 </body>
