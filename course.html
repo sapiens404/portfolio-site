@@ -358,11 +358,11 @@
         function completePayment() {
             // Initialize Razorpay Options
             var options = {
-                "key": "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
-                "amount": "1300", // Amount is in currency subunits. Default currency is INR. Hence, 1300 = 13 INR
+                "key": "rzp_test_1DP5mmOlF5G5ag", // Public Test Key for Demo Mode
+                "amount": "1300", // 13 INR
                 "currency": "INR",
-                "name": "Ritu Raj Designs",
-                "description": "Design Mastery Course Enrollment",
+                "name": "Ritu Raj Design Mastery",
+                "description": "Lifetime Course Access",
                 "image": "https://portfolio-site-peach-mu.vercel.app/assets/images/ritu_profile_masked.png",
                 "handler": function (response) {
                     // This executes AFTER successful payment
