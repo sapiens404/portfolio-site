@@ -325,25 +325,30 @@
 
         // Real PDF Generator
         window.downloadResource = function (filename) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            try {
+                if (!window.jspdf) throw new Error("PDF Library not loaded");
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
 
-            doc.setFontSize(22);
-            doc.setTextColor(0, 255, 102); // Neon Green
-            doc.text("Ritu Raj Design Mastery", 20, 20);
+                doc.setFontSize(22);
+                doc.setTextColor(0, 255, 102); // Neon Green
+                doc.text("Ritu Raj Design Mastery", 20, 20);
 
-            doc.setFontSize(16);
-            doc.setTextColor(0, 0, 0);
-            doc.text("Resource: " + filename, 20, 40);
+                doc.setFontSize(16);
+                doc.setTextColor(0, 0, 0);
+                doc.text("Resource: " + filename, 20, 40);
 
-            doc.setFontSize(12);
-            doc.text("This is a verified course material downloaded from the learning portal.", 20, 60);
-            doc.text("Use this for your assignments and practice.", 20, 70);
+                doc.setFontSize(12);
+                doc.text("This is a verified course material downloaded from the learning portal.", 20, 60);
+                doc.text("Use this for your assignments and practice.", 20, 70);
 
-            doc.setDrawColor(0, 255, 102);
-            doc.line(20, 25, 190, 25);
+                doc.setDrawColor(0, 255, 102);
+                doc.line(20, 25, 190, 25);
 
-            doc.save(filename);
+                doc.save(filename);
+            } catch (e) {
+                alert("Error generating PDF: " + e.message + "\nPlease refresh the page and try again.");
+            }
         };
 
         // Auto load first lesson

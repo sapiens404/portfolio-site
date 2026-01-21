@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>System Diagnostics</title>
+    <style>
+        body {
+            background: #111;
+            color: #00ff66;
+            font-family: monospace;
+            padding: 2rem;
+        }
+
+        .success {
+            color: #00ff66;
+        }
+
+        .error {
+            color: #ff0055;
+            font-weight: bold;
+        }
+
+        .log-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #222;
+            padding: 5px 0;
+        }
+    </style>
+    <!-- Load Libraries to Test -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <h1>🛠️ System Diagnostics Tool</h1>
+    <div id="logs">Running tests...</div>
+
+    <br>
+    <button onclick="localStorage.clear(); alert('Memory Cleared! You can test payment again.'); location.reload();"
+        style="background: #ff0055; color: white; padding: 10px; border: none; cursor: pointer;">
+        ⚠️ Reset All Course Data (Clear Memory)
+    </button>
+    <br><br>
+    <a href="course.html" style="color: white;">&larr; Back to Course Page</a>
+
+    <script>
+        const logs = document.getElementById('logs');
+        function log(msg, status) {
+            const div = document.createElement('div');
+            div.className = 'log-item ' + (status ? 'success' : 'error');
+            div.innerHTML = (status ? '✅ ' : '❌ ') + msg;
+            logs.appendChild(div);
+        }
+
+        // Test 1: LocalStorage
+        try {
+            localStorage.setItem('test_key', 'hello');
+            localStorage.removeItem('test_key');
+            log("Memory (LocalStorage) is Working", true);
+        } catch (e) {
+            log("Memory Error: " + e.message, false);
+        }
+
+        // Test 2: Razorpay
+        if (typeof Razorpay !== 'undefined') {
+            log("Razorpay SDK Loaded Successfully", true);
+        } else {
+            log("Razorpay SDK FAILED. (Check AdBlocker?)", false);
+        }
+
+        // Test 3: jsPDF
+        if (window.jspdf && window.jspdf.jsPDF) {
+            log("PDF Generator (jsPDF) Loaded", true);
+        } else {
+            log("PDF Generator FAILED to load.", false);
+        }
+
+        // Test 4: Enrollment Status
+        const status = localStorage.getItem('course_enrolled');
+        log("Current Enrollment Status: " + (status ? "ENROLLED" : "NOT ENROLLED"), true);
+
+        // Test 5: Custom Content
+        const content = localStorage.getItem('course_content');
+        log("Custom Admin Lessons: " + (content ? JSON.parse(content).length : "0"), true);
+
+    </script>
+</body>
+
+</html>

@@ -335,6 +335,12 @@
 
     <footer style="margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; text-align: center;">
         <p>&copy; 2024 Ritu Raj Designs. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">
+            <a href="debug.html" style="color: #666;">System Check</a> |
+            <a href="#"
+                onclick="localStorage.removeItem('course_enrolled'); alert('Reset! You can now test payment again.'); location.reload();"
+                style="color: #666;">Reset Enrollment</a>
+        </p>
     </footer>
 
     <script>
@@ -349,13 +355,21 @@
         function enrollUser() {
             // Check if user is already logged in/enrolled (Simulated)
             if (localStorage.getItem('course_enrolled') === 'true') {
-                window.location.href = 'course-player.html';
+                if (confirm("You are already enrolled! Go to Course Player?")) {
+                    window.location.href = 'course-player.html';
+                }
                 return;
             }
             document.getElementById('payment-modal').style.display = 'flex';
         }
 
         function completePayment() {
+            // Safety Check
+            if (typeof Razorpay === 'undefined') {
+                alert("Error: Payment Gateway failed to load.\n\nPlease disable AdBlocker or try the 'Pay via UPI App' button instead.");
+                return;
+            }
+
             // Initialize Razorpay Options
             var options = {
                 "key": "rzp_test_1DP5mmOlF5G5ag", // Public Test Key for Demo Mode
