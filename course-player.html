@@ -138,6 +138,9 @@
             /* Mobile hidden for now */
         }
     </style>
+    <!-- Add jsPDF Library -->
+    <!-- Add jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -300,9 +303,48 @@
                     </div>
                 `;
             } else {
-                display.innerHTML = `<div style="text-align: center;"><h3><i class="fas fa-download"></i> Download Ready</h3><button class="btn primary-btn">Download .Zip</button></div>`;
+                display.innerHTML = `<div style="text-align: center;"><h3><i class="fas fa-download"></i> Download Ready</h3><button class="btn primary-btn" onclick="downloadResource('${currentLesson.title}_Assets.pdf')">Download Assets .PDF</button></div>`;
+            }
+
+            // Update Resource Links to be downloadable
+            const resourceContainer = document.getElementById('resource-links');
+            resourceContainer.innerHTML = '';
+            if (currentLesson.resources && currentLesson.resources.length > 0) {
+                currentLesson.resources.forEach(res => {
+                    const a = document.createElement('a');
+                    a.className = 'resource-link';
+                    a.href = '#';
+                    a.innerHTML = `<i class="fas fa-file-pdf"></i> ${res}`;
+                    a.onclick = (e) => { e.preventDefault(); downloadResource(res); };
+                    resourceContainer.appendChild(a);
+                });
+            } else {
+                resourceContainer.innerHTML = '<p style="color:#666; font-size:0.9rem;">No extra resources for this lesson.</p>';
             }
         }
+
+        // Real PDF Generator
+        window.downloadResource = function (filename) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(22);
+            doc.setTextColor(0, 255, 102); // Neon Green
+            doc.text("Ritu Raj Design Mastery", 20, 20);
+
+            doc.setFontSize(16);
+            doc.setTextColor(0, 0, 0);
+            doc.text("Resource: " + filename, 20, 40);
+
+            doc.setFontSize(12);
+            doc.text("This is a verified course material downloaded from the learning portal.", 20, 60);
+            doc.text("Use this for your assignments and practice.", 20, 70);
+
+            doc.setDrawColor(0, 255, 102);
+            doc.line(20, 25, 190, 25);
+
+            doc.save(filename);
+        };
 
         // Auto load first lesson
         loadLesson(0, 'video');
