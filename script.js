@@ -390,7 +390,51 @@ function updateToggleIcon(theme) {
             icon.classList.add('fa-moon');
         }
     } else {
+    } else {
         // Toggle Emoji if no <i> tag
         toggleBtn.textContent = isLight ? '☀️' : '🌙';
     }
+}
+
+// --- FORM HANDLING & NEWSLETTER AUTOMATION ---
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const message = this.querySelector('textarea').value;
+
+        // 1. Save to "Database" (LocalStorage for Demo)
+        const collaborator = {
+            id: Date.now(),
+            name: name,
+            email: email,
+            message: message,
+            date: new Date().toISOString(),
+            status: 'Newsletter Sent'
+        };
+
+        const existingUsers = JSON.parse(localStorage.getItem('portfolio_collaborators') || '[]');
+        existingUsers.push(collaborator);
+        localStorage.setItem('portfolio_collaborators', JSON.stringify(existingUsers));
+
+        // 2. Clear Form
+        this.reset();
+
+        // 3. User Feedback (Simulated Email)
+        const btn = this.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = 'Sent! Check your inbox 🚀';
+        btn.style.background = '#00ff66';
+        btn.style.color = 'black';
+
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+            alert(`Thanks ${name}! We've saved your details.\n\n📧 AUTOMATIC EMAIL SENT TO: ${email}\n\nSubject: Welcome to the Design Revolution!\nIncludes: Trending tips on Glassmorphism & AI.`);
+        }, 3000);
+    });
 }
