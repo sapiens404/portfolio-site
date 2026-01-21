@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Design Mastery Course | Rs. 13 Only</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Course Specific Styles */
+        .course-hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: radial-gradient(circle at center, rgba(139, 0, 255, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #00ff66;
+            margin: 1rem 0;
+            text-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .curriculum-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .module {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .module:last-child {
+            border-bottom: none;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .module-content {
+            display: none;
+            padding-top: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        .module-content ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .module-content ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sticky-enroll {
+            position: sticky;
+            top: 100px;
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(139, 0, 255, 0.2);
+            backdrop-filter: blur(10px);
+            height: fit-content;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .enroll-btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            background: linear-gradient(45deg, #00ff66, #00ccff);
+            border: none;
+            color: black;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+        }
+
+        .enroll-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.6);
+        }
+
+        @media (max-width: 900px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-enroll {
+                position: static;
+                margin-bottom: 3rem;
+            }
+
+            .course-grid {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PORTFOLIO.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Work</a></li>
+                <li><a href="#" class="active" style="color: #00ff66;">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="course-hero">
+        <div class="container">
+            <span class="badge"
+                style="background: #ff0055; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold;">LIMITED
+                TIME OFFER</span>
+            <h1 class="giant-text" style="font-size: 4rem; margin-top: 1rem;">Graphic & UI/UX Design <br>Mastery Course
+            </h1>
+            <p style="font-size: 1.5rem; max-width: 800px; margin: 1rem auto; color: var(--text-muted);">From absolute
+                scratch to professional portfolio. Learn Photoshop, Illustrator, Figma, and Design Theory.</p>
+
+            <div class="price-container">
+                <span class="old-price">₹1999</span>
+                <span class="price-tag">₹13 Only</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container course-grid">
+        <div class="curriculum-content">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 0;">Course Curriculum</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">6 Modules • 45+ Lessons • 15 Assignments</p>
+
+            <div class="curriculum-card">
+                <div class="module">
+                    <button class="module-header" onclick="toggleModule(this)">
+                        <span>01. Foundation of Design</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="module-content active">
+                        <ul>
+                            <li><i class="fas fa-play-circle"></i> Understanding Color Theory & Psychology</li>
+                            <li><i class="fas fa-play-circle"></i> Typography: Font Pairing & Hierarchy</li>
+                            <li><i class="fas fa-play-circle"></i> Layout & Composition Rules</li>
+                            <li><i class="fas fa-file-alt"></i> <strong>Quiz 1:</strong> Design Fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <button class="module-header" onclick="toggleModule(this)">
+                        <span>02. Mastering Adobe Photoshop</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="module-content">
+                        <ul>
+                            <li><i class="fas fa-play-circle"></i> Interface & Tools Overview</li>
+                            <li><i class="fas fa-play-circle"></i> Advanced Masking & Layers</li>
+                            <li><i class="fas fa-play-circle"></i> Photo Manipulation: The "Fiery Aura" Effect</li>
+                            <li><i class="fas fa-laptop-code"></i> <strong>Assignment:</strong> Create a Movie Poster
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <button class="module-header" onclick="toggleModule(this)">
+                        <span>03. Vector Art in Illustrator</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="module-content">
+                        <ul>
+                            <li><i class="fas fa-play-circle"></i> Pen Tool Mastery</li>
+                            <li><i class="fas fa-play-circle"></i> Logo Design Principles</li>
+                            <li><i class="fas fa-play-circle"></i> Creating Icon Sets</li>
+                            <li><i class="fas fa-laptop-code"></i> <strong>Assignment:</strong> Design a Brand Identity
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <button class="module-header" onclick="toggleModule(this)">
+                        <span>04. UI/UX Design with Figma</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="module-content">
+                        <ul>
+                            <li><i class="fas fa-play-circle"></i> Wireframing & Prototyping</li>
+                            <li><i class="fas fa-play-circle"></i> Auto Layout & Components</li>
+                            <li><i class="fas fa-play-circle"></i> Design Systems (Glassmorphism & Neon Styles)</li>
+                            <li><i class="fas fa-laptop-code"></i> <strong>Project:</strong> Design a Mobile App
+                                Interface</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <button class="module-header" onclick="toggleModule(this)">
+                        <span>05. Building Your Portfolio</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="module-content">
+                        <ul>
+                            <li><i class="fas fa-play-circle"></i> Curating Your Best Work</li>
+                            <li><i class="fas fa-play-circle"></i> Writing Case Studies</li>
+                            <li><i class="fas fa-play-circle"></i> Freelancing: Finding Your First Client</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="background: rgba(0, 255, 102, 0.1); border: 1px solid #00ff66; padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                <h3 style="color: #00ff66; margin-bottom: 1rem;">🎓 Certificate of Completion</h3>
+                <p>Upon finishing all modules and assignments, you will receive a verified industry-recognized
+                    certificate to boost your resume.</p>
+            </div>
+        </div>
+
+        <aside>
+            <div class="sticky-enroll">
+                <img src="assets/images/hero_inner_engineering.jpg" alt="Course Cover"
+                    style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Access Everything</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Lifetime access to all course materials and
+                    future updates.</p>
+
+                <ul class="feature-list" style="list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color: #00ff66;"></i> 45+ HD Video Lessons</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff66;"></i> Downloadable Source Files</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff66;"></i> 5 Real-World Projects</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff66;"></i> Community Access</li>
+                    <li><i class="fas fa-check-circle" style="color: #00ff66;"></i> Life-time Support</li>
+                </ul>
+
+                <button class="enroll-btn" onclick="enrollUser()">Enroll Now for ₹13</button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">30-Day
+                    Money-Back Guarantee</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Payment Modal (Simulated) -->
+    <div id="payment-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+        <div
+            style="background: #1a1a1a; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--accent-color); max-width: 400px; width: 90%; text-align: center;">
+            <i class="fas fa-lock" style="font-size: 3rem; color: #00ff66; margin-bottom: 1rem;"></i>
+            <h2>Secure Checkout</h2>
+            <p style="margin-bottom: 2rem;">Enter your details to instant access.</p>
+            <input type="text" placeholder="Full Name"
+                style="width: 100%; padding: 1rem; margin-bottom: 1rem; background: #333; border: none; color: white; border-radius: 8px;">
+            <input type="email" placeholder="Email Address"
+                style="width: 100%; padding: 1rem; margin-bottom: 1rem; background: #333; border: none; color: white; border-radius: 8px;">
+            <button class="enroll-btn" onclick="completePayment()">Pay ₹13 via UPI/Card</button>
+            <button onclick="document.getElementById('payment-modal').style.display='none'"
+                style="background: none; border: none; color: #aaa; margin-top: 1rem; cursor: pointer;">Cancel</button>
+        </div>
+    </div>
+
+    <footer style="margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; text-align: center;">
+        <p>&copy; 2024 Ritu Raj Designs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleModule(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            content.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-up');
+            icon.classList.toggle('fa-chevron-down');
+        }
+
+        function enrollUser() {
+            document.getElementById('payment-modal').style.display = 'flex';
+        }
+
+        function completePayment() {
+            const btn = document.querySelector('#payment-modal .enroll-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+
+            setTimeout(() => {
+                alert("🎉 Success! Welcome to the course.\n\nCheck your email for login details and study materials.");
+                document.getElementById('payment-modal').style.display = 'none';
+                btn.innerText = originalText;
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
