@@ -203,13 +203,27 @@
     </div>
 
     <script>
-        // Mock Data Database (Defaults)
+        // Real Course Content Database 
         let lessons = [
-            { type: 'video', title: '1.1 Understanding Color', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: ['Color_Guide.pdf'] },
-            { type: 'video', title: '1.2 Hierarchy Basics', src: 'https://www.youtube.com/embed/KeZ_tN7S6XU', resources: [] },
-            { type: 'quiz', title: '1.3 Quiz: Foundations', src: null, resources: [] },
-            { type: 'video', title: '2.1 Interface Tour', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: [] }, // Using placeholder for now
-            { type: 'file', title: '2.2 Download Assets', src: null, resources: [] },
+            // Module 1: Foundations
+            { type: 'video', title: '1.1 Understanding Color Theory', src: 'https://www.youtube.com/embed/_2LLXnUdUIc', resources: ['Color_Wheel_Guide.pdf'] },
+            { type: 'video', title: '1.2 Typography Mastery', src: 'https://www.youtube.com/embed/sJdZ902dCqM', resources: ['Font_Pairing_List.pdf'] },
+            { type: 'video', title: '1.3 Layout & Composition', src: 'https://www.youtube.com/embed/a5s5qGg01nE', resources: [] },
+            { type: 'quiz', title: '1.4 Quiz: Foundations', src: null, resources: [] },
+
+            // Module 2: Photoshop
+            { type: 'video', title: '2.1 Photoshop Interface Tour', src: 'https://www.youtube.com/embed/IyR_uYsRdPs', resources: ['Shortcut_Keys.pdf'] },
+            { type: 'video', title: '2.2 Advanced Masking', src: 'https://www.youtube.com/embed/v_32rCq63Ww', resources: [] },
+            { type: 'video', title: '2.3 Creating the Fiery Glow', src: 'https://www.youtube.com/embed/U_86P3Zk7j0', resources: ['Fire_Brushes.zip'] },
+            { type: 'file', title: '2.4 Download Assignment Assets', src: null, resources: [] },
+
+            // Module 3: Illustrator
+            { type: 'video', title: '3.1 Mastering the Pen Tool', src: 'https://www.youtube.com/embed/mDKdBV1x1lU', resources: [] },
+            { type: 'video', title: '3.2 Professional Logo Design', src: 'https://www.youtube.com/embed/clDPnL07NCo', resources: [] },
+
+            // Module 4: Figma & UI/UX
+            { type: 'video', title: '4.1 Figma Crash Course', src: 'https://www.youtube.com/embed/FTFaQWZBqQ8', resources: [] },
+            { type: 'video', title: '4.2 Designing Glassmorphism', src: 'https://www.youtube.com/embed/W7fT_lXwPuw', resources: ['UI_Kit.fig'] },
         ];
 
         // Load Custom Admin Content from "Backend" (LocalStorage)
