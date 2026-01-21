@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Player | Design Mastery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .player-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            height: 100vh;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Sidebar Playlist */
+        .playlist {
+            background: #111;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-y: auto;
+            color: #ccc;
+        }
+
+        .playlist-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1a1a1a;
+        }
+
+        .module-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            padding: 1.5rem 1.5rem 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .lesson-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+
+        .lesson-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        .lesson-item.active {
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+            border-left: 4px solid #00ff66;
+        }
+
+        .lesson-item i {
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .top-bar {
+            padding: 1rem 2rem;
+            background: #111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .video-placeholder {
+            text-align: center;
+            color: #666;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            max-height: 80vh;
+        }
+
+        .resources-tab {
+            padding: 2rem;
+            background: #111;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 200px;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            margin-right: 1rem;
+            transition: background 0.2s;
+        }
+
+        .resource-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 900px) {
+            .player-container {
+                grid-template-columns: 1fr;
+            }
+
+            .playlist {
+                display: none;
+            }
+
+            /* Mobile hidden for now */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="player-container">
+        <!-- Sidebar -->
+        <div class="playlist">
+            <div class="playlist-header">
+                <a href="index.html" style="color: grey; text-decoration: none; font-size: 0.9rem;"><i
+                        class="fas fa-arrow-left"></i> Back to Home</a>
+                <h3 style="color: white; margin-top: 10px;">Design Mastery</h3>
+                <div style="height: 4px; background: #333; margin-top: 10px; border-radius: 2px;">
+                    <div style="width: 0%; height: 100%; background: #00ff66;" id="course-progress"></div>
+                </div>
+                <small style="color: #666;">0% Completed</small>
+            </div>
+
+            <div class="module-title">Module 1: Foundations</div>
+            <div class="lesson-item active" onclick="loadLesson(0, 'video')">
+                <i class="fas fa-play-circle"></i> 1.1 Understanding Color
+            </div>
+            <div class="lesson-item" onclick="loadLesson(1, 'video')">
+                <i class="fas fa-play-circle"></i> 1.2 Hierarchy Basics
+            </div>
+            <div class="lesson-item" onclick="loadLesson(2, 'quiz')">
+                <i class="fas fa-file-alt"></i> 1.3 Quiz: Foundations
+            </div>
+
+            <div class="module-title">Module 2: Photoshop</div>
+            <div class="lesson-item" onclick="loadLesson(3, 'video')">
+                <i class="fas fa-play-circle"></i> 2.1 Interface Tour
+            </div>
+            <div class="lesson-item" onclick="loadLesson(4, 'file')">
+                <i class="fas fa-download"></i> 2.2 Download Assets
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="top-bar">
+                <h2 id="current-lesson-title">1.1 Understanding Color</h2>
+                <button class="btn secondary-btn" style="padding: 0.5rem 1rem;">Next Lesson <i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="video-wrapper" id="content-display">
+                <!-- Content injected here -->
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <p>Select a lesson to begin</p>
+                </div>
+            </div>
+
+            <div class="resources-tab">
+                <h3>Resources</h3>
+                <p style="color: #888; margin-bottom: 1rem;">Study materials for this lesson:</p>
+                <div id="resource-links">
+                    <a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Color_Theory_CheatSheet.pdf</a>
+                    <a href="#" class="resource-link"><i class="fas fa-link"></i> Adobe Color Wheel Tool</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock Data Database
+        const lessons = [
+            { type: 'video', title: '1.1 Understanding Color', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: ['Color_Guide.pdf'] }, // Placeholder YouTube
+            { type: 'video', title: '1.2 Hierarchy Basics', src: 'https://www.youtube.com/embed/KeZ_tN7S6XU', resources: [] },
+            { type: 'quiz', title: '1.3 Quiz: Foundations', src: null, resources: [] },
+        ];
+
+        function loadLesson(index, type) {
+            // Update Active State (Visual)
+            document.querySelectorAll('.lesson-item').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lesson-item')[index].classList.add('active');
+
+            // Update Title
+            document.getElementById('current-lesson-title').innerText = lessons[index].title;
+
+            // Load Content
+            const display = document.getElementById('content-display');
+            if (type === 'video') {
+                display.innerHTML = `<iframe class="video-player" src="${lessons[index].src}" frameborder="0" allowfullscreen></iframe>`;
+            } else if (type === 'quiz') {
+                display.innerHTML = `
+                    <div style="background: #222; padding: 2rem; border-radius: 8px; width: 60%;">
+                        <h3>Question 1</h3>
+                        <p>Which color represents trust and professionalism?</p>
+                        <br>
+                        <label style="display:block; margin-bottom: 10px;"><input type="radio" name="q1"> Red</label>
+                        <label style="display:block; margin-bottom: 10px;"><input type="radio" name="q1"> Blue</label>
+                        <label style="display:block; margin-bottom: 10px;"><input type="radio" name="q1"> Yellow</label>
+                        <br>
+                        <button class="btn primary-btn">Submit Answer</button>
+                    </div>
+                `;
+            } else {
+                display.innerHTML = `<div style="text-align: center;"><h3><i class="fas fa-download"></i> Download Ready</h3><button class="btn primary-btn">Download .Zip</button></div>`;
+            }
+        }
+
+        // Auto load first lesson
+        loadLesson(0, 'video');
+    </script>
+</body>
+
+</html>

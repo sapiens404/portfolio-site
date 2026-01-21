@@ -337,9 +337,10 @@
             btn.innerText = "Processing...";
 
             setTimeout(() => {
-                alert("🎉 Success! Welcome to the course.\n\nCheck your email for login details and study materials.");
+                alert("🎉 Success! Welcome to the course.\n\nRedirecting you to the learning portal...");
                 document.getElementById('payment-modal').style.display = 'none';
                 btn.innerText = originalText;
+                window.location.href = 'course-player.html';
             }, 2000);
         }
     </script>
