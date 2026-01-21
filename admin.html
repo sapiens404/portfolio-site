@@ -237,6 +237,31 @@
                         <p><strong>Ritu Raj</strong></p>
                     </div>
                 </div>
+
+                <div id="course-manager-section" style="display: none;">
+                    <h2>Manage Course Content</h2>
+                    <p>Upload new lessons to the internal memory.</p>
+
+                    <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: #00ff66;">Add New Lesson</h3>
+                        <input type="text" id="lesson-title" placeholder="Lesson Title (e.g., 3.1 Advanced Typography)"
+                            style="width: 100%; padding: 10px; margin-bottom: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px;">
+                        <input type="text" id="lesson-url" placeholder="Video URL (YouTube Embed Link)"
+                            style="width: 100%; padding: 10px; margin-bottom: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px;">
+                        <select id="lesson-module"
+                            style="width: 100%; padding: 10px; margin-bottom: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px;">
+                            <option value="Module 1: Foundations">Module 1: Foundations</option>
+                            <option value="Module 2: Photoshop">Module 2: Photoshop</option>
+                            <option value="Module 3: Advanced">Module 3: Advanced</option>
+                        </select>
+                        <button class="btn primary-btn" onclick="addLesson()">Upload Lesson</button>
+                    </div>
+
+                    <h3>Current Content Library</h3>
+                    <ul id="content-list" style="list-style: none;">
+                        <!-- Content loaded here -->
+                    </ul>
+                </div>
             </main>
         </div>
     </div>
@@ -258,12 +283,65 @@
         function showSection(sectionId) {
             document.getElementById('users-section').style.display = 'none';
             document.getElementById('newsletter-section').style.display = 'none';
+            document.getElementById('course-manager-section').style.display = 'none';
 
             if (sectionId === 'newsletter') {
                 document.getElementById('newsletter-section').style.display = 'block';
+            } else if (sectionId === 'course-manager') {
+                document.getElementById('course-manager-section').style.display = 'block';
+                loadContentList();
             } else {
                 document.getElementById('users-section').style.display = 'block';
             }
+        }
+
+        // --- COURSE MANAGER LOGIC ---
+        function addLesson() {
+            const title = document.getElementById('lesson-title').value;
+            const url = document.getElementById('lesson-url').value;
+            const module = document.getElementById('lesson-module').value;
+
+            if (!title || !url) { alert("Please complete all fields"); return; }
+
+            // Create Lesson Object
+            const newLesson = {
+                id: Date.now(),
+                type: 'video',
+                title: title,
+                src: url, // In real app, check for valid URL
+                module: module
+            };
+
+            // Save to "Internal Memory" (LocalStorage)
+            const currentContent = JSON.parse(localStorage.getItem('course_content') || '[]');
+            currentContent.push(newLesson);
+            localStorage.setItem('course_content', JSON.stringify(currentContent));
+
+            alert("Lesson Uploaded Successfully!");
+            document.getElementById('lesson-title').value = '';
+            document.getElementById('lesson-url').value = '';
+            loadContentList();
+        }
+
+        function loadContentList() {
+            const currentContent = JSON.parse(localStorage.getItem('course_content') || '[]');
+            const list = document.getElementById('content-list');
+            list.innerHTML = '';
+
+            if (currentContent.length === 0) {
+                list.innerHTML = '<li style="color: #666;">No custom content uploaded yet.</li>';
+                return;
+            }
+
+            currentContent.forEach(item => {
+                const li = document.createElement('li');
+                li.style.background = 'rgba(255,255,255,0.05)';
+                li.style.padding = '10px';
+                li.style.marginBottom = '5px';
+                li.style.borderRadius = '4px';
+                li.innerHTML = `<strong>${item.module}</strong>: ${item.title}`;
+                list.appendChild(li);
+            });
         }
 
         // Load data from LocalStorage

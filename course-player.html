@@ -203,12 +203,44 @@
     </div>
 
     <script>
-        // Mock Data Database
-        const lessons = [
-            { type: 'video', title: '1.1 Understanding Color', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: ['Color_Guide.pdf'] }, // Placeholder YouTube
+        // Mock Data Database (Defaults)
+        let lessons = [
+            { type: 'video', title: '1.1 Understanding Color', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: ['Color_Guide.pdf'] },
             { type: 'video', title: '1.2 Hierarchy Basics', src: 'https://www.youtube.com/embed/KeZ_tN7S6XU', resources: [] },
             { type: 'quiz', title: '1.3 Quiz: Foundations', src: null, resources: [] },
+            { type: 'video', title: '2.1 Interface Tour', src: 'https://www.youtube.com/embed/L1h9xxCkXBM', resources: [] }, // Using placeholder for now
+            { type: 'file', title: '2.2 Download Assets', src: null, resources: [] },
         ];
+
+        // Load Custom Admin Content from "Backend" (LocalStorage)
+        const customContent = JSON.parse(localStorage.getItem('course_content') || '[]');
+        if (customContent.length > 0) {
+            // Append custom lessons to the list
+            lessons = [...lessons, ...customContent];
+
+            // Also append visually to sidebar
+            const playlist = document.querySelector('.playlist');
+            // Check if "Module 3" header already exists, if not add it
+            if (!playlist.innerHTML.includes('Module 3: Advanced') && customContent.some(l => l.module === 'Module 3: Advanced')) {
+                const modTitle = document.createElement('div');
+                modTitle.className = 'module-title';
+                modTitle.innerText = 'Module 3: Advanced (Custom)';
+                playlist.appendChild(modTitle);
+            }
+
+            customContent.forEach((lesson, idx) => {
+                // Calculate actual index based on total length
+                const actualIndex = lessons.length - customContent.length + idx;
+
+                const div = document.createElement('div');
+                div.className = 'lesson-item';
+                div.onclick = () => loadLesson(actualIndex, lesson.type);
+                div.innerHTML = `<i class="fas fa-play-circle"></i> ${lesson.title} <span style="font-size:0.7rem; color: #00ff66; border:1px solid #00ff66; padding: 2px 4px; border-radius: 4px; margin-left: auto;">NEW</span>`;
+
+                // If it belongs to Module 3, append under the header, otherwise just at end (Simulated)
+                playlist.appendChild(div);
+            });
+        }
 
         function loadLesson(index, type) {
             // Update Active State (Visual)
