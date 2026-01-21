@@ -678,11 +678,22 @@ img {
 /* Neon Cyan - Photoshop */
 .neon-cyan {
     border: 2px solid #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 15px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
+    animation: neonPulseCyan 2s infinite ease-in-out alternate;
 }
 
 .neon-cyan:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+@keyframes neonPulseCyan {
+    from {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(0, 255, 255, 0.8), inset 0 0 25px rgba(0, 255, 255, 0.3);
+    }
 }
 
 .neon-cyan .skill-name {
@@ -698,11 +709,22 @@ img {
 /* Neon Magenta - Illustrator */
 .neon-magenta {
     border: 2px solid #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3), inset 0 0 15px rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.2);
+    animation: neonPulseMagenta 2s infinite ease-in-out alternate;
 }
 
 .neon-magenta:hover {
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), inset 0 0 20px rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.8), inset 0 0 30px rgba(255, 0, 255, 0.3);
+}
+
+@keyframes neonPulseMagenta {
+    from {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(255, 0, 255, 0.8), inset 0 0 25px rgba(255, 0, 255, 0.3);
+    }
 }
 
 .neon-magenta .skill-name {
@@ -718,11 +740,22 @@ img {
 /* Neon Yellow - Figma */
 .neon-yellow {
     border: 2px solid #ffff00;
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.3), inset 0 0 15px rgba(255, 255, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), inset 0 0 20px rgba(255, 255, 0, 0.2);
+    animation: neonPulseYellow 2s infinite ease-in-out alternate;
 }
 
 .neon-yellow:hover {
-    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), inset 0 0 20px rgba(255, 255, 0, 0.2);
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.8), inset 0 0 30px rgba(255, 255, 0, 0.3);
+}
+
+@keyframes neonPulseYellow {
+    from {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), inset 0 0 20px rgba(255, 255, 0, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(255, 255, 0, 0.8), inset 0 0 25px rgba(255, 255, 0, 0.3);
+    }
 }
 
 .neon-yellow .skill-name {
@@ -738,11 +771,22 @@ img {
 /* Neon Green - Typography */
 .neon-green {
     border: 2px solid #00ff66;
-    box-shadow: 0 0 15px rgba(0, 255, 102, 0.3), inset 0 0 15px rgba(0, 255, 102, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), inset 0 0 20px rgba(0, 255, 102, 0.2);
+    animation: neonPulseGreen 2s infinite ease-in-out alternate;
 }
 
 .neon-green:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 102, 0.5), inset 0 0 20px rgba(0, 255, 102, 0.2);
+    box-shadow: 0 0 40px rgba(0, 255, 102, 0.8), inset 0 0 30px rgba(0, 255, 102, 0.3);
+}
+
+@keyframes neonPulseGreen {
+    from {
+        box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), inset 0 0 20px rgba(0, 255, 102, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(0, 255, 102, 0.8), inset 0 0 25px rgba(0, 255, 102, 0.3);
+    }
 }
 
 .neon-green .skill-name {
