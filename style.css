@@ -664,26 +664,116 @@ img {
 
 .skill-item {
     margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Neon Cyan - Photoshop */
+.neon-cyan {
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.neon-cyan:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.neon-cyan .skill-name {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.neon-cyan .progress {
+    background: linear-gradient(90deg, #00ffff, #00cccc);
+    box-shadow: 0 0 10px #00ffff;
+}
+
+/* Neon Magenta - Illustrator */
+.neon-magenta {
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3), inset 0 0 15px rgba(255, 0, 255, 0.1);
+}
+
+.neon-magenta:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), inset 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.neon-magenta .skill-name {
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.neon-magenta .progress {
+    background: linear-gradient(90deg, #ff00ff, #cc00cc);
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+/* Neon Yellow - Figma */
+.neon-yellow {
+    border: 2px solid #ffff00;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.3), inset 0 0 15px rgba(255, 255, 0, 0.1);
+}
+
+.neon-yellow:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), inset 0 0 20px rgba(255, 255, 0, 0.2);
+}
+
+.neon-yellow .skill-name {
+    color: #ffff00;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.neon-yellow .progress {
+    background: linear-gradient(90deg, #ffff00, #cccc00);
+    box-shadow: 0 0 10px #ffff00;
+}
+
+/* Neon Green - Typography */
+.neon-green {
+    border: 2px solid #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.3), inset 0 0 15px rgba(0, 255, 102, 0.1);
+}
+
+.neon-green:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 102, 0.5), inset 0 0 20px rgba(0, 255, 102, 0.2);
+}
+
+.neon-green .skill-name {
+    color: #00ff66;
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.neon-green .progress {
+    background: linear-gradient(90deg, #00ff66, #00cc55);
+    box-shadow: 0 0 10px #00ff66;
 }
 
 .skill-name {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
 }
 
 .progress-bar {
     width: 100%;
-    height: 10px;
-    background-color: var(--border-color);
-    border-radius: 5px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
     overflow: hidden;
 }
 
 .progress {
     height: 100%;
-    background-color: var(--accent-color);
-    border-radius: 5px;
+    border-radius: 6px;
     transition: width 1s ease-in-out;
 }
 
