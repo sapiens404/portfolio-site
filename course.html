@@ -320,7 +320,7 @@
                 <i class="fas fa-mobile-alt"></i> Pay via UPI App
             </a>
 
-            <button class="enroll-btn" onclick="completePayment()">I Have Paid (Verify)</button>
+            <button class="enroll-btn" onclick="verifyManualPayment()">I Have Paid (Verify)</button>
             <button onclick="document.getElementById('payment-modal').style.display='none'"
                 style="background: none; border: none; color: #aaa; margin-top: 1rem; cursor: pointer;">Cancel</button>
 
@@ -392,6 +392,19 @@
 
             document.getElementById('payment-modal').style.display = 'none';
             rzp1.open();
+        }
+
+        function verifyManualPayment() {
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "Verifying...";
+
+            setTimeout(() => {
+                // Simulate backend verification
+                alert("Payment Verified! Redirecting to course...");
+                localStorage.setItem('course_enrolled', 'true');
+                window.location.href = 'course-player.html';
+            }, 1500);
         }
     </script>
 </body>
