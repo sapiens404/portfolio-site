@@ -101,10 +101,39 @@ const App = {
         try {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            doc.setFontSize(20);
+
+            // Find content in DB
+            let pdfText = "This is a verified course material downloaded from the learning portal.\nUse this for your assignments and practice.";
+
+            // Search all lessons for this resource
+            COURSE_DB.modules.forEach(mod => {
+                mod.lessons.forEach(l => {
+                    if (l.pdf_content && l.pdf_content[filename]) {
+                        pdfText = l.pdf_content[filename];
+                    }
+                });
+            });
+
+            // HEADER
+            doc.setFontSize(22);
+            doc.setTextColor(0, 255, 102); // Neon Green
             doc.text("Ritu Raj Design Academy", 20, 20);
-            doc.setFontSize(14);
-            doc.text("Official Resource: " + filename, 20, 40);
+
+            doc.setDrawColor(0, 255, 102);
+            doc.line(20, 25, 190, 25);
+
+            // TITLE
+            doc.setFontSize(16);
+            doc.setTextColor(0, 0, 0);
+            doc.text("Resource: " + filename, 20, 40);
+
+            // BODY CONTENT
+            doc.setFontSize(11);
+            doc.setTextColor(40, 40, 40);
+
+            const splitText = doc.splitTextToSize(pdfText, 170); // Wrap text
+            doc.text(splitText, 20, 60);
+
             doc.save(filename);
         } catch (e) {
             alert("PDF Error: " + e.message);

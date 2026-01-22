@@ -14,21 +14,67 @@ const COURSE_DB = {
                     title: "Understanding Color Theory",
                     type: "video",
                     src: "https://www.youtube.com/embed/_2LLXnUdUIc",
-                    resources: ["Color_Wheel.pdf", "Psychology_of_Color.pdf"]
+                    resources: ["Color_Wheel_Guide.pdf"],
+                    pdf_content: {
+                        "Color_Wheel_Guide.pdf": `
+                        COLOR HARMONY RUELS
+                        -------------------
+                        1. Complementary: Opposite colors (Red + Green) - High Contrast
+                        2. Analogous: Side-by-side (Blue + Blue-Green) - Calm
+                        3. Triadic: Triangle (Red + Yellow + Blue) - Vibrant
+
+                        EMOTIONAL MEANINGS
+                        -------------------
+                        Red: Passion, Urgency
+                        Blue: Trust, Tech
+                        Yellow: Optimism, Warning
+                        Green: Growth, Money
+                        `
+                    }
                 },
                 {
                     id: 102,
                     title: "Typography Mastery",
                     type: "video",
                     src: "https://www.youtube.com/embed/sJdZ902dCqM",
-                    resources: ["Font_Pairing_CheatSheet.pdf"]
+                    resources: ["Font_Pairing_Guide.pdf"],
+                    pdf_content: {
+                        "Font_Pairing_Guide.pdf": `
+                        1. HEADER + BODY PAIRS
+                        ------------------------------------
+                        - Montserrat (Bold) + Open Sans (Light)
+                        - Playfair Display + Lato
+                        - Oswald + Roboto
+                        - Bebas Neue + Montserrat
+
+                        2. HIERARCHY RULES
+                        ------------------------------------
+                        - Scale: 2x rule (Headers 2x size of body)
+                        - Weight: Skip a weight (Bold -> Light, not Medium)
+                        - Contrast: Serif Header + Sans-Serif Body
+                        `
+                    }
                 },
                 {
                     id: 103,
                     title: "Layout & Composition Rules",
                     type: "video",
                     src: "https://www.youtube.com/embed/a5s5qGg01nE",
-                    resources: []
+                    resources: ["Grid_Systems_101.pdf"],
+                    pdf_content: {
+                        "Grid_Systems_101.pdf": `
+                        THE RULE OF THIRDS
+                        Divide your canvas into 3x3. Place key elements at intersections.
+
+                        THE F-PATTERN
+                        Users scan screens in an F-shape. 
+                        Top Left -> Top Right -> Lower Left -> Across.
+
+                        WHITESPACE
+                        Space is not empty; it is an active design element.
+                        Give content room to breathe.
+                        `
+                    }
                 }
             ]
         },
@@ -40,14 +86,45 @@ const COURSE_DB = {
                     title: "Photoshop Interface Tour",
                     type: "video",
                     src: "https://www.youtube.com/embed/IyR_uYsRdPs",
-                    resources: ["Shortcut_Map.pdf"]
+                    resources: ["Shortcut_Map.pdf"],
+                    pdf_content: {
+                        "Shortcut_Map.pdf": `
+                        ESSENTIAL SHORTCUTS (WIN/MAC)
+                        ------------------------------------
+                        - Move Tool: V
+                        - Marquee Tool: M
+                        - Brush Tool: B
+                        - Pen Tool: P
+                        - Text Tool: T
+                        
+                        LAYERS
+                        ------------------------------------
+                        - New Layer: Ctrl/Cmd + Shift + N
+                        - Duplicate: Ctrl/Cmd + J
+                        - Group: Ctrl/Cmd + G
+                        `
+                    }
                 },
                 {
                     id: 202,
                     title: "Advanced Masking Techniques",
                     type: "video",
                     src: "https://www.youtube.com/embed/v_32rCq63Ww",
-                    resources: ["Practice_Images.zip"]
+                    resources: ["Masking_Checklist.pdf"],
+                    pdf_content: {
+                        "Masking_Checklist.pdf": `
+                        THE GOLDEN RULES OF MASKING
+                        ------------------------------------
+                        1. WHITE Reveals, BLACK Conceals.
+                        2. Use Soft Brushes for hair/fur edges.
+                        3. Use Pen Tool for hard mechanical edges.
+                        
+                        REFINE EDGE WORKFLOW
+                        1. Select Subject (Auto)
+                        2. Select & Mask -> Refine Edge Brush
+                        3. Toggle "Decontaminate Colors" to remove halos.
+                        `
+                    }
                 }
             ]
         },
@@ -59,7 +136,25 @@ const COURSE_DB = {
                     title: "Figma Crash Course",
                     type: "video",
                     src: "https://www.youtube.com/embed/FTFaQWZBqQ8",
-                    resources: []
+                    resources: ["Figma_Shortcuts.pdf"],
+                    pdf_content: {
+                        "Figma_Shortcuts.pdf": `
+                        FIGMA POWER MOVES
+                        ------------------------------------
+                        - Frame: F
+                        - Rectangle: R
+                        - Text: T
+                        - Color Picker: I
+                        
+                        AUTO LAYOUT
+                        - Add: Shift + A
+                        - Remove: Alt + Shift + A
+                        
+                        COMPONENTS
+                        - Create: Ctrl/Cmd + Alt + K
+                        - Detach: Ctrl/Cmd + Alt + B
+                        `
+                    }
                 },
                 {
                     id: 302,
