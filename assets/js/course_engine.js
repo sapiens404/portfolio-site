@@ -69,6 +69,12 @@ const App = {
         }
     },
 
+    resetEnrollment: function () {
+        localStorage.removeItem('isEnrolled');
+        localStorage.removeItem('watched_lessons');
+        window.location.reload();
+    },
+
     // --- PAYMENT SYSTEM ---
     startPayment: function () {
         // 1. Razorpay Test
