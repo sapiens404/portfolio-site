@@ -119,6 +119,24 @@ class Carousel {
         this.nextBtn.addEventListener('click', () => this.nextSlide());
         this.prevBtn.addEventListener('click', () => this.prevSlide());
 
+        // --- SWIPE / DRAG SUPPORT ---
+        this.isDragging = false;
+        this.startX = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
+        this.animationID = 0;
+
+        // Touch events
+        this.track.addEventListener('touchstart', (e) => this.dragStart(e), { passive: true });
+        this.track.addEventListener('touchmove', (e) => this.dragMove(e), { passive: true });
+        this.track.addEventListener('touchend', () => this.dragEnd());
+
+        // Mouse events
+        this.track.addEventListener('mousedown', (e) => this.dragStart(e));
+        this.track.addEventListener('mousemove', (e) => this.dragMove(e));
+        this.track.addEventListener('mouseup', () => this.dragEnd());
+        this.track.addEventListener('mouseleave', () => this.dragEnd());
+
         // Update width and position on start and resize
         window.addEventListener('resize', () => {
             this.updateWidth();
@@ -132,9 +150,56 @@ class Carousel {
         }, 300);
     }
 
+    dragStart(e) {
+        this.isDragging = true;
+        this.startX = this.getPositionX(e);
+        this.track.style.transition = 'none';
+        this.animationID = requestAnimationFrame(() => this.animation());
+        this.container.classList.add('grabbing');
+    }
+
+    dragMove(e) {
+        if (!this.isDragging) return;
+        const currentX = this.getPositionX(e);
+        const diff = currentX - this.startX;
+        this.currentTranslate = this.prevTranslate + diff;
+    }
+
+    dragEnd() {
+        this.isDragging = false;
+        cancelAnimationFrame(this.animationID);
+        this.container.classList.remove('grabbing');
+
+        const movedBy = this.currentTranslate - this.prevTranslate;
+
+        if (movedBy < -100 && this.currentIndex < this.slides.length - 1) {
+            this.currentIndex += 1;
+        } else if (movedBy > 100 && this.currentIndex > 0) {
+            this.currentIndex -= 1;
+        }
+
+        this.track.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+        this.goToSlide(this.currentIndex);
+        this.prevTranslate = -this.currentIndex * this.container.offsetWidth;
+        this.currentTranslate = this.prevTranslate;
+    }
+
+    getPositionX(e) {
+        return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+
+    animation() {
+        if (this.isDragging) {
+            this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+            requestAnimationFrame(() => this.animation());
+        }
+    }
+
     updatePosition() {
         const width = this.container.offsetWidth;
-        this.track.style.transform = `translateX(-${this.currentIndex * width}px)`;
+        this.currentTranslate = -this.currentIndex * width;
+        this.prevTranslate = this.currentTranslate;
+        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
     }
 
     goToSlide(index) {
@@ -389,7 +454,6 @@ function updateToggleIcon(theme) {
             icon.classList.remove('fa-sun');
             icon.classList.add('fa-moon');
         }
-    } else {
     } else {
         // Toggle Emoji if no <i> tag
         toggleBtn.textContent = isLight ? '☀️' : '🌙';

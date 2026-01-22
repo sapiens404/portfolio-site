@@ -7,167 +7,228 @@ const COURSE_DB = {
     },
     modules: [
         {
-            title: "Module 1: Design Foundations",
+            title: "Module 1: Design Theory & Branding",
             lessons: [
                 {
                     id: 101,
-                    title: "Understanding Color Theory",
+                    title: "The Science of Color Psychology",
                     type: "video",
-                    src: "https://www.youtube.com/embed/UwHopwh0L_k", // Deep 2-hour Mastery
-                    resources: ["Color_Psychology_Guide.pdf"],
+                    src: "https://www.youtube.com/embed/UwHopwh0L_k",
+                    resources: ["Color_Theory_Full_Compendium.pdf"],
                     pdf_content: {
-                        "Color_Psychology_Guide.pdf": `
-[H] MASTERING COLOR PSYCHOLOGY & THEORY
-[H] -----------------------------------------
+                        "Color_Theory_Full_Compendium.pdf": `
+[H] MASTERING COLOR PSYCHOLOGY (A 20-PAGE STUDY GUIDE)
+[H] ===================================================
 
-Color is the most powerful tool in your design arsenal. It sets the mood, directs attention, and influences psychology.
+[H] INTRODUCTION
+Color is the silent language of the brain. It is the first thing a user processes when visiting a site or seeing a brand.
 
-[BLUE] ANALOGOUS COLORS:
-Side-by-side on the wheel. They create a serene and comfortable design. Used extensively in nature.
-[GREEN] PRO TIP: Use Analogous colors for backgrounds to keep them subtle.
+[H] STEP 1: UNDERSTANDING THE FOUNDATION
+[BLUE] PRIMARY COLORS: The root of everything (Red, Yellow, Blue).
+[BLUE] SECONDARY COLORS: Mixed from primary (Green, Orange, Purple).
+[BLUE] TERTIARY COLORS: The subtle shades in between.
 
-[BLUE] COMPLEMENTARY COLORS:
-Directly opposite on the wheel. They create high contrast and vibrant looks.
-[RED] WARNING: Use sparingly! Overuse can cause visual vibration and eye strain.
+[H] STEP 2: THE HARMONY FORMULAS
+[GREEN] COMPLEMENTARY: Use for high-energy brands (e.g., Sports, Sales).
+[GREEN] ANALOGOUS: Use for calm, luxury brands (e.g., Spas, Nature).
+[GREEN] TRIADIC: High contrast but balanced (e.g., Kids toys, Entertainment).
 
-[H] PSYCHOLOGY OF COLORS:
-- [BLUE] BLUE: Represents Trust, Stability, and Tech. Used by Facebook, Intel, Boeing.
-- [RED] RED: Represents Urgency, Passion, and Appetite. Used by CNN, Netflix, KFC.
-- [GREEN] GREEN: Represents Growth, Money, and Nature. Used by Starbucks, Animal Planet.
+[H] STEP 3: EMOTIONAL MAPPING
+- [RED] RED: Appetite, Speed, Urgency.
+- [BLUE] BLUE: Trust, Intelligence, Calm.
+- [GREEN] GREEN: Health, Freshness, Wealth.
+- [H] BLACK: Premium, Secretive, Strong.
 
-[H] THE 60-30-10 RULE:
-[GREEN] 60% should be your Dominant Color (usually neutral).
-[GREEN] 30% should be your Secondary Color.
-[GREEN] 10% should be your Accent Color (for Buttons and CTAs).
+[H] STEP 4: THE TECHNICAL WORKFLOW
+[BLUE] CMYK VS RGB:
+- RGB is for screens (Light-based).
+- CMYK is for printing (Ink-based).
+[RED] CRITICAL: Never design a print poster in RGB; your colors will look "muddy" when printed.
+
+[H] STEP 5: PRO TIPS FOR ACCESSIBILITY
+[GREEN] Always ensure a contrast ratio of at least 4.5:1 for body text.
+Use online tools to check for color-blindness compatibility.
                         `
                     }
                 },
                 {
                     id: 102,
-                    title: "Typography Mastery",
+                    title: "Typography & Layout Mastery",
                     type: "video",
                     src: "https://www.youtube.com/embed/UwHopwh0L_k",
-                    resources: ["Pro_Typography_Secrets.pdf"],
+                    resources: ["Typography_Mastery_Bible.pdf"],
                     pdf_content: {
-                        "Pro_Typography_Secrets.pdf": `
-[H] THE COMPLETE GUIDE TO TYPOGRAPHY
-[H] ---------------------------------
+                        "Typography_Mastery_Bible.pdf": `
+[H] THE TYPOGRAPHY MASTERCLASS (STEP-BY-STEP BOOK)
+[H] =============================================
 
-Typography is 90% of design. If you cannot master type, you cannot design for the web.
+[H] CHAPTER 1: THE ANATOMY OF TYPE
+To master type, you must see the shapes. Baseline, X-height, Ascenders, Descenders, and Serifs.
 
-[H] SERIF VS SANS-SERIF:
-- [BLUE] SERIF: Formal, Traditional, Trustworthy (Example: Times New Roman, Playfair).
-- [BLUE] SANS-SERIF: Modern, Clean, Minimalist (Example: Montserrat, Roboto).
+[H] CHAPTER 2: CHOOSING THE RIGHT CATEGORY
+- [BLUE] SERIF: Use for traditional, formal, or long-form reading (Print).
+- [BLUE] SANS-SERIF: Use for digital, modern, and minimal design.
+- [BLUE] SLAB SERIF: Masculine, thick, and authoritative.
+- [BLUE] SCRIPT: For invitations and high-end elegance.
 
-[H] READABILITY VS LEGIBILITY:
-[BLUE] LEGIBILITY is how easy it is to distinguish one letter from another.
-[BLUE] READABILITY is how easy it is to read a long block of text.
+[H] CHAPTER 3: THE THREE PILLARS OF SPACING
+[GREEN] KERNING: Individual character adjustment.
+[GREEN] TRACKING: Group adjustment.
+[GREEN] LEADING: Line height.
+[RED] PRO TIP: Standard leading is usually 1.2 to 1.5 times the font size.
 
-[H] MASTERING HIERARCHY:
-[GREEN] RULE 1: Use Size to show importance.
-[GREEN] RULE 2: Use Weight (Bold vs Regular) to create contrast.
-[GREEN] RULE 3: Use Color/Opacity to push background text away.
+[H] CHAPTER 4: CREATING HIERARCHY
+1. [BLUE] SCALE: Big titles, small body.
+2. [BLUE] WEIGHT: Bold vs Thin.
+3. [BLUE] CASE: ALL CAPS vs lowercase.
 
-[RED] DON'T DO THIS:
-- Never use Comic Sans for professional work.
-- Never stretch your fonts. Always scale holding SHIFT.
-- Never use more than 2-3 fonts in a single project.
+[H] CHAPTER 5: PAIRING SECRETS
+[GREEN] The Golden Rule: Use fonts from the same family OR completely different families. Never pair two fonts that look "almost the same."
                         `
                     }
                 }
             ]
         },
         {
-            title: "Module 2: Photoshop Mastery",
+            title: "Module 2: Photoshop Expert Training",
             lessons: [
                 {
                     id: 201,
-                    title: "Photoshop Interface & Workflow",
+                    title: "The Photoshop Interface & Layer Logic",
                     type: "video",
                     src: "https://www.youtube.com/embed/aNpO6G72O3w",
-                    resources: ["Photoshop_CheatSheet.pdf"],
+                    resources: ["Photoshop_Complete_Guide.pdf"],
                     pdf_content: {
-                        "Photoshop_CheatSheet.pdf": `
-[H] PHOTOSHOP PRO WORKFLOW
-[H] -----------------------
+                        "Photoshop_Complete_Guide.pdf": `
+[H] PHOTOSHOP 2024: THE COMPLETE MASTERCLASS BOOK
+[H] =============================================
 
-[BLUE] ESSENTIAL SHORTCUTS:
-- [GREEN] V: Move Tool
-- [GREEN] B: Brush Tool
-- [GREEN] M: Marquee Tool
-- [GREEN] P: Pen Tool (The King of selection)
-- [GREEN] Ctrl/Cmd + J: Duplicate Layer
-- [GREEN] Ctrl/Cmd + Shift + N: New Layer
+[H] CHAPTER 1: GETTING STARTED
+Understanding Bit Depth, Resolution (72 vs 300 DPI), and the workspace.
 
-[H] NON-DESTRUCTIVE EDITING:
-[BLUE] NEVER delete pixels. Always use MASKING.
-[GREEN] Smart Objects: Convert layers to Smart Objects to keep them high-res when scaling.
-[GREEN] Adjustment Layers: Use the panel for Color/Brightness instead of Image > Adjustments.
+[H] CHAPTER 2: THE POWER OF LAYERS
+Layers are the soul of Photoshop. Master Layer Modes (Multiply, Screen, Overlay) to blend light and shadows perfectly.
+
+[H] CHAPTER 3: SELECTION TOOLS STEP-BY-STEP
+1. [BLUE] Rectangular Marquee: Box selections.
+2. [BLUE] Lasso Tool: Organic selections.
+3. [BLUE] Object Selection: New AI tool for quick work.
+4. [BLUE] THE PEN TOOL: The only tool for pixel-perfect product selection.
+
+[H] CHAPTER 4: MASKING SECRETS
+[GREEN] Non-Destructive Editing: NEVER use the eraser tool. Always use mask buttons.
+[BLUE] White = Visible. Black = Invisible. Gray = Transparent.
+
+[H] CHAPTER 5: RETOUCHING LIKE A PRO
+[BLUE] Liquify: For shaping and proportions.
+[BLUE] Healing Brushes: For skin and texture cleanup.
+[BLUE] Clone Stamp: For manual precision.
+
+[H] CHAPTER 6: COLOR GRADING
+Using Camera Raw Filter to push colors like a cinematic grader.
                         `
                     }
                 },
                 {
                     id: 202,
-                    title: "Advanced Masking Techniques",
+                    title: "Advanced Masking & Compositing",
                     type: "video",
-                    src: "https://www.youtube.com/embed/aNpO6G72O3w", // PiXimperfect Master Master
-                    resources: ["Masking_Masterclass_Notes.pdf"],
+                    src: "https://www.youtube.com/embed/aNpO6G72O3w",
+                    resources: ["The_Masking_Book.pdf"],
                     pdf_content: {
-                        "Masking_Masterclass_Notes.pdf": `
-[H] ADVANCED MASKING & COMPOSITING
-[H] -------------------------------
+                        "The_Masking_Book.pdf": `
+[H] THE ADVANCED MASKING BIBLE (HIGH-LEVEL ONLY)
+[H] ============================================
 
-[H] THE MAGIC RULE:
-[BLUE] WHITE Reveals, BLACK Conceals. 
-[GREEN] Gray levels create transparency.
+[H] CHAPTER 1: HAIR & FUR SELECTION
+The hardest part of masking. Use "Select and Mask" + "Refine Edge Brush" to capture every single hair.
 
-[H] HAIR SELECTION WORKFLOW:
-1. Use [BLUE] Select Subject.
-2. Go to [BLUE] Select and Mask.
-3. Use the [BLUE] Refine Edge Brush on the hair edges.
-4. Set Output to [GREEN] Layer Mask.
+[H] CHAPTER 2: CHANNEL MASKING
+For complex transparent objects like glass or water. Using the RGB channels to isolate specific luminosity data.
 
-[H] USING LUMINOSITY MASKS:
-These are masks based on Brightness levels. Perfect for landscape blending.
+[H] CHAPTER 3: LUMINOSITY MASKS
+Targeting only the highlights or shadows for ultra-realistic composite blending.
 
-[RED] COMMON MISTAKES:
-- Leaving "halos" or white edges around masked objects.
-- Using a hard brush for soft objects like clouds or hair.
+[H] CHAPTER 4: COMPOSITING SECRETS
+[GREEN] Matching Light: Ensure the light source in Image A matches Image B.
+[GREEN] Matching Color: Use a "Color Balance" or "Curves" layer to match high-low tones.
+[GREEN] Matching Sharpness: Add a tiny bit of noise to a "clean" cut-out to make it look like it belongs in the photo.
                         `
                     }
                 }
             ]
         },
         {
-            title: "Module 3: Figma & UX Design",
+            title: "Module 3: Illustrator Mastery (Vector Logic)",
+            lessons: [
+                {
+                    id: 203,
+                    title: "Introduction to Vector Design",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/UwHopwh0L_k",
+                    resources: ["Illustrator_Step_By_Step.pdf"],
+                    pdf_content: {
+                        "Illustrator_Step_By_Step.pdf": `
+[H] ADOBE ILLUSTRATOR: THE COMPLETE VECTOR BOOK
+[H] ===========================================
+
+[H] CHAPTER 1: WHAT IS A VECTOR?
+Unlike Photoshop (Pixels), Illustrator uses Math (Points). Vectors are infinitely scalable. Never lose quality again.
+
+[H] CHAPTER 2: THE TOOLSET
+[BLUE] SELECTION TOOL (V): Moves objects.
+[BLUE] DIRECT SELECTION (A): Moves individual points.
+[BLUE] PEN TOOL (P): Creates the path.
+
+[H] CHAPTER 3: THE SHAPE BUILDER TOOL
+Move beyond simple circles and boxes. Use Shift+M to merge or subtract shapes from each other. This is how 90% of modern logos are built.
+
+[H] CHAPTER 4: TYPOGRAPHY ON PATHS
+Make your text follow curves, circles, and custom shapes. Perfect for badge designs and stickers.
+
+[H] CHAPTER 5: THE GRADIENT MESH
+Create hyper-realistic 3D shading on 2D vector shapes. This separates the pros from the amateurs.
+
+[H] CHAPTER 6: EXPORTING ASSETS
+How to save for Logo Hand-offs (EPS, PDF, SVG, AI).
+                        `
+                    }
+                }
+            ]
+        },
+        {
+            title: "Module 4: Figma & UI/UX Strategy",
             lessons: [
                 {
                     id: 301,
-                    title: "Figma Fundamentals for UX",
+                    title: "Figma Fundamentals & Auto-Layout",
                     type: "video",
                     src: "https://www.youtube.com/embed/bI6q16ffdgQ",
-                    resources: ["Figma_UX_Checklist.pdf"],
+                    resources: ["Figma_UX_Master_Book.pdf"],
                     pdf_content: {
-                        "Figma_UX_Checklist.pdf": `
-[H] FIGMA FOR PROFESSIONAL UX DESIGN
-[H] ---------------------------------
+                        "Figma_UX_Master_Book.pdf": `
+[H] THE FIGMA UX DESIGN BIBLE (20-PAGE DEEP DIVE)
+[H] =============================================
 
-[H] AUTO-LAYOUT (SHIFTA+A):
-[BLUE] This is the most important feature. It allows your designs to grow/shrink based on content.
-[GREEN] PRO TIP: Nest Auto-Layouts inside each other for complex interfaces.
+[H] CHAPTER 1: WORKSPACE & COLLABORATION
+Designing with Teams. The history of Figma and why it beat Sketch and Adobe XD.
 
-[H] COMPONENTS & VARIANTS:
-[BLUE] Create atomic elements (Buttons, Inputs) as Components.
-[BLUE] Use VARIANTS to manage states like Hover, Pressed, and Disabled.
+[H] CHAPTER 2: AUTO-LAYOUT (SHIFTA+A)
+The superpower of UI design. Padding, Gap, and Constraints.
+[GREEN] This is how you build buttons that automatically fit different word lengths.
 
-[H] THE DESIGN SYSTEM:
-[GREEN] 1. Define Color Styles.
-[GREEN] 2. Define Text Styles.
-[GREEN] 3. Define Grid System (8pt Grid is standard).
+[H] CHAPTER 3: COMPONENTS & VARIANTS
+[BLUE] ATOMIC DESIGN: Build the small atoms (icons, colors), then molecules (buttons), then organisms (navbars), then templates.
 
-[RED] PROHIBITED:
-- Detaching instances unless absolutely necessary.
-- Naming layers "Frame 14923". Always Name your layers!
+[H] CHAPTER 4: PROTOTYPING & ANIMATION
+[BLUE] SMART ANIMATE: How to simulate a real app feeling.
+[BLUE] FLOWS: Creating a user journey from Login -> Home -> Transaction.
+
+[H] CHAPTER 5: DESIGN SYSTEMS
+Building a library that developers can actually use. Grids (8pt system), Spacing tokens, and variable color palettes.
+
+[H] CONCLUSION
+Master Figma, and you master the modern web economy.
                         `
                     }
                 }

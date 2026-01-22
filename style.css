@@ -554,12 +554,18 @@ img {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: grab;
+}
+
+.carousel-container.grabbing {
+    cursor: grabbing;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     align-items: center;
+    user-select: none;
 }
 
 .carousel-slide {
@@ -576,6 +582,8 @@ img {
     display: block;
     object-fit: contain;
     border-radius: 12px;
+    pointer-events: none;
+    /* Prevents dragging the image itself */
 }
 
 /* Specific for social cause (square) */
