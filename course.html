@@ -51,6 +51,7 @@
             margin: 0;
             background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -257,8 +258,10 @@
     </div>
 
     <!-- LOAD ENGINE -->
-    <script src="assets/js/course_data.js"></script>
-    <script src="assets/js/course_engine.js"></script>
+    <script src="assets/js/course_data.js"
+        onerror="alert('Error: Could not load Course Database. Please refresh the page.');"></script>
+    <script src="assets/js/course_engine.js"
+        onerror="alert('Error: Could not load Course Engine. Please refresh the page.');"></script>
     <script>
         // Init Logic
         document.addEventListener('DOMContentLoaded', () => {

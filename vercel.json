@@ -1,6 +1,6 @@
 {
   "version": 2,
   "name": "ritu-raj-portfolio",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "framework": null
 }
