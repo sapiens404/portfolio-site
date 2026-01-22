@@ -181,13 +181,22 @@
         @media(max-width: 900px) {
             #player-view {
                 grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                height: auto;
+            }
+
+            .content-area {
+                order: 1;
             }
 
             .sidebar {
-                display: none;
+                order: 2;
+                display: block;
+                height: 400px;
+                border-right: none;
+                border-top: 1px solid #333;
             }
-
-            /* Simplified mobile view */
         }
     </style>
 </head>
