@@ -79,14 +79,14 @@ const App = {
     startPayment: function () {
         // 1. Razorpay Test
         const options = {
-            "key": "rzp_test_1DP5mmOlF5G5ag",
+            "key": "rzp_test_1DP5mmOlF5G5ag", // REPLACE WITH LIVE KEY
             "amount": COURSE_DB.info.price,
             "currency": "INR",
-            "name": "Ritu Raj Design",
+            "name": "Design The Imagination",
             "description": COURSE_DB.info.title,
             "handler": function (response) {
                 App.unlockCourse();
-                alert("Payment Successful! Welcome aboard.");
+                alert("Payment Successful! Welcome to the Design Evolution.");
             },
             "theme": { "color": "#00ff66" }
         };
