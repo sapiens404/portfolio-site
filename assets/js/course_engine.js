@@ -101,11 +101,12 @@ const App = {
         try {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
+            const pageHeight = doc.internal.pageSize.height;
+            const pageWidth = doc.internal.pageSize.width;
+            let y = 20; // Start Y position
 
             // Find content in DB
-            let pdfText = "This is a verified course material downloaded from the learning portal.\nUse this for your assignments and practice.";
-
-            // Search all lessons for this resource
+            let pdfText = "Content loading error. Please contact admin.";
             COURSE_DB.modules.forEach(mod => {
                 mod.lessons.forEach(l => {
                     if (l.pdf_content && l.pdf_content[filename]) {
@@ -114,29 +115,57 @@ const App = {
                 });
             });
 
-            // HEADER
-            doc.setFontSize(22);
-            doc.setTextColor(0, 255, 102); // Neon Green
-            doc.text("Ritu Raj Design Academy", 20, 20);
+            // --- HELPER: Add Heading ---
+            const addHeader = () => {
+                doc.setFontSize(18);
+                doc.setTextColor(0, 255, 102); // Neon Green
+                doc.text("Ritu Raj Design Mastery", 20, 20);
+                doc.setDrawColor(0, 255, 102);
+                doc.line(20, 25, pageWidth - 20, 25);
+                y = 40;
+            };
 
-            doc.setDrawColor(0, 255, 102);
-            doc.line(20, 25, 190, 25);
+            // First Page Header
+            addHeader();
 
-            // TITLE
-            doc.setFontSize(16);
+            // Resource Title
+            doc.setFontSize(14);
             doc.setTextColor(0, 0, 0);
-            doc.text("Resource: " + filename, 20, 40);
+            doc.setFont("helvetica", "bold");
+            doc.text("RESOURCE: " + filename, 20, y);
+            y += 15;
 
-            // BODY CONTENT
+            // Content Body
             doc.setFontSize(11);
+            doc.setFont("helvetica", "normal");
             doc.setTextColor(40, 40, 40);
 
-            const splitText = doc.splitTextToSize(pdfText, 170); // Wrap text
-            doc.text(splitText, 20, 60);
+            const splitText = doc.splitTextToSize(pdfText, pageWidth - 40);
+
+            // Loop through lines to handle pagination
+            splitText.forEach(line => {
+                if (y > pageHeight - 30) {
+                    doc.addPage();
+                    addHeader(); // Re-add header on new page
+                }
+                doc.text(line, 20, y);
+                y += 6; // Line spacing
+            });
+
+            // Footer (Copyright)
+            const totalPages = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= totalPages; i++) {
+                doc.setPage(i);
+                doc.setFontSize(9);
+                doc.setTextColor(150);
+                doc.text("© 2024 Ritu Raj Designs - Premier Education Material", 20, pageHeight - 10);
+                doc.text(`Page ${i} of ${totalPages}`, pageWidth - 40, pageHeight - 10);
+            }
 
             doc.save(filename);
         } catch (e) {
-            alert("PDF Error: " + e.message);
+            alert("PDF Generation Failed: " + e.message);
+            console.error(e);
         }
     },
 
