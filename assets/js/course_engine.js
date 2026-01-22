@@ -4,12 +4,69 @@ const App = {
     state: {
         isEnrolled: localStorage.getItem('isEnrolled') === 'true',
         currentLesson: null,
-        isAdmin: false
+        isAdmin: false,
+        theme: localStorage.getItem('course_theme') || 'dark'
     },
 
     init: function () {
         console.log("Course Engine Starting...");
+        this.initStars();
+        this.applyTheme();
         this.render();
+    },
+
+    // --- COSMIC STARFIELD ---
+    initStars: function () {
+        const canvas = document.getElementById('star-canvas');
+        if (!canvas) return;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        const starGeometry = new THREE.BufferGeometry();
+        const starCount = 8000;
+        const posArray = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 2000;
+        }
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 1.2, transparent: true, opacity: 0.6 });
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+        camera.position.z = 5;
+        this.starMaterial = starMaterial;
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            stars.rotation.y += 0.0005;
+            stars.rotation.x += 0.0002;
+            renderer.render(scene, camera);
+        };
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    },
+
+    // --- THEME TOGGLE ---
+    toggleTheme: function () {
+        this.state.theme = this.state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('course_theme', this.state.theme);
+        this.applyTheme();
+    },
+
+    applyTheme: function () {
+        document.documentElement.setAttribute('data-theme', this.state.theme);
+        const btn = document.getElementById('theme-toggle');
+        if (btn) btn.innerHTML = this.state.theme === 'dark' ? '🌙 Dark' : '☀️ Light';
+        if (this.starMaterial) {
+            this.starMaterial.color.setHex(this.state.theme === 'dark' ? 0xffffff : 0x0066ff);
+        }
     },
 
     // --- PAYMENT SYSTEM ---
@@ -91,10 +148,40 @@ const App = {
             resList.innerHTML = '<span style="color:#666">No resources for this lesson.</span>';
         }
 
+        this.state.currentLesson = lessonId;
+        this.updateProgress();
+
         // Highlight Active
         document.querySelectorAll('.lesson-row').forEach(el => el.classList.remove('active'));
         const activeRow = document.getElementById(`lesson-${lessonId}`);
         if (activeRow) activeRow.classList.add('active');
+    },
+
+    nextLesson: function () {
+        const allLessons = [];
+        COURSE_DB.modules.forEach(m => m.lessons.forEach(l => allLessons.push(l.id)));
+        const currentIndex = allLessons.indexOf(this.state.currentLesson);
+        if (currentIndex < allLessons.length - 1) {
+            this.loadLesson(allLessons[currentIndex + 1]);
+        } else {
+            alert("Congratulations! You've reached the end of the course.");
+        }
+    },
+
+    updateProgress: function () {
+        // Track watched lessons in localStorage
+        let watched = JSON.parse(localStorage.getItem('watched_lessons') || '[]');
+        if (!watched.includes(this.state.currentLesson)) {
+            watched.push(this.state.currentLesson);
+            localStorage.setItem('watched_lessons', JSON.stringify(watched));
+        }
+
+        const total = COURSE_DB.modules.reduce((acc, m) => acc + m.lessons.length, 0);
+        const percent = Math.round((watched.length / total) * 100);
+        const bar = document.getElementById('progress-bar-inner');
+        const text = document.getElementById('progress-text');
+        if (bar) bar.style.width = percent + "%";
+        if (text) text.innerText = `Progress: ${percent}%`;
     },
 
     generatePDF: function (filename) {
@@ -148,8 +235,28 @@ const App = {
                     doc.addPage();
                     addHeader(); // Re-add header on new page
                 }
+
+                // --- Color Logic ---
+                if (line.includes("[GREEN]")) {
+                    doc.setTextColor(0, 150, 0);
+                    line = line.replace("[GREEN]", "✓ ");
+                } else if (line.includes("[RED]")) {
+                    doc.setTextColor(200, 0, 0);
+                    line = line.replace("[RED]", "⚠ ");
+                } else if (line.includes("[BLUE]")) {
+                    doc.setTextColor(0, 102, 204);
+                    line = line.replace("[BLUE]", "ℹ ");
+                } else if (line.includes("[H]")) {
+                    doc.setFont("helvetica", "bold");
+                    doc.setTextColor(0, 0, 0);
+                    line = line.replace("[H]", "");
+                } else {
+                    doc.setTextColor(40, 40, 40);
+                    doc.setFont("helvetica", "normal");
+                }
+
                 doc.text(line, 20, y);
-                y += 6; // Line spacing
+                y += 7; // Line spacing
             });
 
             // Footer (Copyright)

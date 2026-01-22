@@ -7,6 +7,7 @@
     <title>Design Mastery Course | Ritu Raj</title>
 
     <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,14 +18,52 @@
             --neon: #00ff66;
             --bg: #0a0a0a;
             --panel: #111;
+            --text: #ffffff;
+            --sidebar-border: #333;
+        }
+
+        [data-theme="light"] {
+            --bg: #f0f4f8;
+            --panel: #ffffff;
+            --text: #1a1a1a;
+            --sidebar-border: #cbd5e1;
         }
 
         body {
             margin: 0;
             background: var(--bg);
             font-family: 'Outfit', sans-serif;
-            color: white;
+            color: var(--text);
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        #star-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            z-index: 1000;
+            background: var(--panel);
+            color: var(--neon);
+            border: 1px solid var(--neon);
+            padding: 8px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
         }
 
         /* LAYOUTS */
@@ -92,7 +131,7 @@
 
         .sidebar {
             background: var(--panel);
-            border-right: 1px solid #333;
+            border-right: 1px solid var(--sidebar-border);
             overflow-y: auto;
         }
 
@@ -203,8 +242,8 @@
 </head>
 
 <body>
-
-    <!-- VIEW 1: LANDING PAGE -->
+    <canvas id="star-canvas"></canvas>
+    <button id="theme-toggle" onclick="App.toggleTheme()">🌙 Mode</button>
     <div id="landing-view">
         <nav
             style="padding: 20px; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; box-sizing: border-box;">
@@ -226,8 +265,16 @@
     <div id="player-view">
         <div class="sidebar">
             <div class="sidebar-header">
-                <h3>Course Content</h3>
-                <small style="color: #666">Progress: 0%</small>
+                <a href="index.html"
+                    style="color: grey; text-decoration: none; font-size: 0.8rem; display: block; margin-bottom: 10px;">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <h3 style="margin: 0;">Course Content</h3>
+                <div style="height: 6px; background: #333; margin-top: 10px; border-radius: 3px; overflow: hidden;">
+                    <div id="progress-bar-inner"
+                        style="height: 100%; background: var(--neon); width: 0%; transition: width 0.3s;"></div>
+                </div>
+                <small id="progress-text" style="color: #666; margin-top: 5px; display: block;">Progress: 0%</small>
             </div>
             <div id="playlist-container"></div>
         </div>
@@ -235,9 +282,14 @@
             <div id="video-screen">
                 <!-- Video Injected Here -->
             </div>
-            <div class="info-panel">
-                <h3>Lesson Resources</h3>
-                <div id="resource-list" style="margin-top: 15px;"></div>
+            <div class="info-panel" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3>Lesson Resources</h3>
+                    <div id="resource-list" style="margin-top: 10px;"></div>
+                </div>
+                <button class="cta-btn" onclick="App.nextLesson()" style="padding: 10px 20px; font-size: 1rem;">
+                    Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </div>
