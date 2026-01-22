@@ -7,276 +7,521 @@ const COURSE_DB = {
     },
     modules: [
         {
-            title: "Module 1: Design Theory & Psychology",
+            title: "Module 1: Design Foundations & Visual Language",
             lessons: [
                 {
                     id: 101,
-                    title: "The Architecture of Color (Full Book)",
+                    title: "The Architecture of Color Theory",
                     type: "video",
                     src: "https://www.youtube.com/embed/UwHopwh0L_k",
-                    resources: ["Book_1_Color_Theory.pdf"],
+                    related_videos: [
+                        { title: "Color Psychology in Branding", url: "https://www.youtube.com/watch?v=M8afKKlwJAk" },
+                        { title: "Choosing Color Palettes", url: "https://www.youtube.com/watch?v= UwHopwh0L_k" }
+                    ],
+                    resources: ["Book_1_Color_Physics.pdf", "Color_Emotional_Mapping.pdf", "Professional_Palette_Samples.pdf"],
                     pdf_content: {
-                        "Book_1_Color_Theory.pdf": `
-[H] THE ARCHITECTURE OF COLOR THEORY (COMPLETE BOOK)
-[H] ===============================================
+                        "Book_1_Color_Physics.pdf": `
+[H] THE PHYSICS AND BIOLOGY OF COLOR THEORY (FULL MANUAL)
+[H] ========================================
 
-[H] INTRODUCTION: THE BIOLOGY OF COLOR
-Color is a complex system of neurological signals. When light hits the retina, it triggers biochemical reactions that travel to the hypothalamus, which governs our hormones and emotions. In this 20-chapter summary book, we will explore why color is the most critical decision in branding.
+[H] INTRODUCTION: THE NEUROSCIENCE OF COLOR
+Color is more than just light; it is a profound neurological event. When light hits the human retina, it triggers biochemical reactions that travel to the hypothalamus—the part of the brain that governs our hormones and emotions. In this comprehensive guide, we explore the deep architecture of color in branding.
 
-[H] CHAPTER 1: LIGHT AND THE ELECTROMAGNETIC SPECTRUM
-Light is energy. The visible spectrum (400nm to 700nm) is what we perceive as color. 
-[BLUE] FACT: Red light has the longest wavelength and induces the highest physical stimulus. 
+[H] CHAPTER 1: THE ELECTROMAGNETIC SPECTRUM
+Light is energy moving in waves. The human eye can only see a small sliver (400nm to 700nm). 
+[BLUE] THE WAVELENGTH FACTOR: Red has the longest wavelength (low frequency), while Violet has the shortest (high frequency). 
+[RED] DESIGN FACT: Long wavelengths (Red/Orange) physically stimulate the nervous system, increasing heart rate and blood flow. This is why "Sale" signs are red.
 
 [H] CHAPTER 2: THE RGB VS CMYK DIVIDE
+Understanding your workspace is critical.
 1. [H] RGB (Red, Green, Blue):
-These are "Additive" colors. When you mix 100% of all three on a screen, you get Pure White. 
-- [GREEN] Best for: Websites, Apps, Social Media, TV.
+These are ADDITIVE colors. They are created with light. When you mix 100% of all three on a screen, you get Pure White.
+- [GREEN] BEST FOR: UI Design, App Design, Social Media, TV, and Digital Art.
 2. [H] CMYK (Cyan, Magenta, Yellow, Black):
-These are "Subtractive" colors. When you mix them on paper, you get a muddy dark color (Black is added for depth).
-- [RED] WARNING: If you design a logo in RGB and print it without conversion, the colors will look dull and washed out.
+These are SUBTRACTIVE colors. They are created with physical pigment. When you mix them on paper, they absorb light.
+- [RED] CRITICAL WARNING: If you design a brand identity in RGB and send it to a printer without conversion, your colors will look "muddy" and dead on paper. Always design for the medium.
 
-[H] CHAPTER 3: UNDERSTANDING THE COLOR WHEEL
-- [BLUE] PRIMARY: Red, Yellow, Blue.
-- [BLUE] SECONDARY: Green, Orange, Purple.
-- [BLUE] TERTIARY: Vermilion, Amber, Chartreuse, Teal, Violet, Magenta.
+[H] CHAPTER 3: TINTS, SHADES, AND TONES
+Mastering the depth of a single hue:
+[BLUE] TINT: Color + White. These create soft, youthful, and energetic vibes.
+[BLUE] SHADE: Color + Black. These create mystery, authority, and high-end luxury vibes.
+[BLUE] TONE: Color + Grey. These create sophisticated, corporate, and stable vibes.
 
-[H] CHAPTER 4: CORE HARMONIES
-[BLUE] Harmony 1: Complementary (Opposites). High energy, high impact.
-[BLUE] Harmony 2: Analogous (Neighbors). Growth, safety, calming.
-[BLUE] Harmony 3: Monochromatic (Tints/Shades). Elegant, professional, high-end luxury.
+[H] CHAPTER 4: THE 60-30-10 BALANCE RULE
+A mathematical approach to color distribution in UI:
+- [GREEN] 60% NEUTRAL: Usually the background (White/Dark Grey).
+- [GREEN] 30% SECONDARY: The brand's primary theme.
+- [GREEN] 10% ACCENT: The "Call to Action" color (Buttons/Notifications).
+[RED] DESIGN TIP: Your accent color should be the highest contrast to the 60% neutral.
 
-[H] CHAPTER 5: EMOTIONAL MAPPING
-- [H] RED: Fear, Survival, Appetite, Love. 
-- [H] BLUE: Logic, Trust, Intelligence. (Hence used by Banks and Tech giants).
-- [H] GREEN: Equilibrium, Reassurance, Environmental.
-- [H] YELLOW: Confidence, Fragility, Creativity.
+[H] CHAPTER 5: ACCESSIBILITY (WCAG STANDARDS)
+[BLUE] CONTRAST RATIO: Professional web text must meet AA (4.5:1) or AAA (7:1) contrast standards.
+[RED] ACCESSIBILITY ALERT: 8% of the male population is colorblind. Never use color as the ONLY way to show status.
 
-[H] CHAPTER 6: TINTS, SHADES AND TONES
-- [BLUE] TINT: Color + White. (Higher energy, youthful).
-- [BLUE] SHADE: Color + Black. (Serious, mysterious, authoritative).
-- [BLUE] TONE: Color + Grey. (Muted, sophisticated, corporate).
+[H] CHAPTER 6: COLOR IN CULTURE
+Color meanings change by geography:
+- [BLUE] WHITE: Purity in the West, Mourning in parts of the East.
+- [BLUE] RED: Danger in the West, Good Luck and Prosperity in China.
+Always research your audience before picking a palette.
+                        `,
+                        "Color_Emotional_Mapping.pdf": `
+[H] COLOR PSYCHOLOGY: THE EMOTIONAL MAP
+[H] =====================================
 
-[H] CHAPTER 7: ACCESSIBILITY AND THE 60-30-10 RULE
-[GREEN] RULE: 60% Dominant (Neutral), 30% Secondary, 10% Accent (Your CTA color).
-[RED] ACCESSIBILITY: 8% of men are colorblind. Always ensure your "Submit" buttons have high contrast against the background so they are visible even in greyscale.
+[H] RED: THE AGGRESSOR
+Red is the color of survival, appetite, and high energy.
+- [BLUE] POSITIVE: Passion, Energy, Excitement.
+- [BLUE] NEGATIVE: Aggression, Danger, Strain.
+- [H] BEST FOR: Fast food, Sales, Emergency services.
 
-[H] CONCLUSION: THE BRAND VIBE
-Color is the face of your brand. Choose wisely, or you will communicate the wrong emotion to your customers.
+[H] BLUE: THE COMMUNICATOR
+The world's most trusted color. It reduces heart rate.
+- [BLUE] POSITIVE: Trust, Logic, Intelligence, Calm.
+- [BLUE] NEGATIVE: Coldness, Lack of emotion.
+- [H] BEST FOR: Banking, Tech companies, Healthcare.
+
+[H] YELLOW: THE OPTIMIST
+The first color the human eye notices.
+- [BLUE] POSITIVE: Confidence, Creativity, Friendliness.
+- [BLUE] NEGATIVE: Anxiety, Fragility.
+- [H] BEST FOR: Warning signs, Creative agencies, Kids' brands.
+
+[H] GREEN: THE EQUILIBRIUM
+The color of rest. It sits in the middle of the spectrum.
+- [BLUE] POSITIVE: Health, Wealth, Environment, Growth.
+- [BLUE] NEGATIVE: Boredom, Stagnation.
+- [H] BEST FOR: Organic brands, Finance, Sustainability.
+
+[H] BLACK: THE AUTHORITATIVE
+Black is the absence of light. It suggests total clarity.
+- [BLUE] POSITIVE: Sophistication, Power, Efficiency, Mystery.
+- [BLUE] NEGATIVE: Oppression, Heaviness.
+- [H] BEST FOR: Luxury goods (Chanel, Nike), Premium electronics.
+                        `,
+                        "Professional_Palette_Samples.pdf": `
+[H] CURATED PROFESSIONAL PALETTES
+[H] ============================
+
+[H] PALETTE 1: THE DISRUPTIVE STARTUP
+[BLUE] Colors: Electric Purple, Neon Green, Deep Charcoal.
+Vibe: High energy, futuristic, daring.
+
+[H] PALETTE 2: THE LUXURY SPA
+[BLUE] Colors: Sage Green, Sand Beige, Soft White.
+Vibe: Calm, expensive, organic.
+
+[H] PALETTE 3: THE FINTECH GIANT
+[BLUE] Colors: Navy Blue, Cyan Accent, Cool Grey.
+Vibe: Stable, secure, fast.
                         `
                     }
                 },
                 {
                     id: 102,
-                    title: "Typography Mastery (Full Book)",
+                    title: "Typography Mastery & Font Psychology",
                     type: "video",
-                    src: "https://www.youtube.com/embed/UwHopwh0L_k",
-                    resources: ["Book_2_Typography_Bible.pdf"],
+                    src: "https://www.youtube.com/embed/mZH8Adm7PMg",
+                    related_videos: [
+                        { title: "Pairing Fonts Like a Pro", url: "https://www.youtube.com/watch?v=xyIXxSOXAlo" },
+                        { title: "Modern Web Typography Tips", url: "https://www.youtube.com/watch?v=9EPTM91TBDU" }
+                    ],
+                    resources: ["Book_2_Typography_Manual.pdf", "Font_Pairing_Secrets.pdf", "Typography_Checklist.pdf"],
                     pdf_content: {
-                        "Book_2_Typography_Bible.pdf": `
-[H] THE TYPOGRAPHY MASTERCLASS BIBLE
-[H] ================================
+                        "Book_2_Typography_Manual.pdf": `
+[H] THE ULTIMATE MANUAL OF TYPOGRAPHY (DEEP DIVE)
+[H] ============================================
 
 [H] CHAPTER 1: WORDS ARE PICTURES
-Typography is the visual component of the written word. It is 90% of web design. If your type is bad, your website is bad.
+Typography is the most important skill for a graphic designer. 95% of the information on the web is written language. If your typography is bad, your design is a failure.
 
-[H] CHAPTER 2: THE ANATOMY OF A TYPEFACE
-Understanding the grid:
-- [BLUE] BASELINE: The ground.
-- [BLUE] X-HEIGHT: The height of lowercase.
-- [BLUE] CAP HEIGHT: Height of uppercase.
-- [BLUE] SERIFS: The "feet" that help letters flow together on paper.
+[H] CHAPTER 2: THE ANATOMY OF A LETTER
+To master type, you must see the grid:
+- [BLUE] ASCENDER: The part of a letter that goes above the x-line (like 'h' or 'd').
+- [BLUE] DESCENDER: The part that goes below the baseline (like 'y' or 'g').
+- [BLUE] X-HEIGHT: The height of the lowercase body. Large x-heights are more readable on mobile screens.
+- [BLUE] SERIF: The "feet" at the ends of strokes.
 
 [H] CHAPTER 3: CLASSIFICATIONS
-1. [H] SERIFS (Old Style & Transitional):
-Used for long-form text (Books, News).
-- [GREEN] Examples: Playfair Display, Times, Garamond.
-2. [H] SANS-SERIFS (Geometric & Humanist):
-Modern, efficient, legible on pixel screens.
-- [GREEN] Examples: Inter, Roboto, Montserrat.
+1. [H] SERIFS:
+Traditional and formal. The serifs help lead the eye from one letter to the next.
+- [GREEN] EXAMPLES: Playfair Display, Times New Roman, Garamond.
+2. [H] SANS-SERIFS:
+Modern, clean, and efficient. No "feet".
+- [GREEN] EXAMPLES: Inter, Montserrat, Roboto, Helvetica.
 3. [H] SLAB SERIFS:
-Bold, blocky, industrial.
-- [GREEN] Examples: Rockwell, Roboto Slab.
-4. [H] DISPLAY:
-Fun, decorative, used ONLY for headlines. Never for body text.
+Bold and blocky. Used for impact and industrial branding.
+4. [H] SCRIPT:
+Decorative. Use ONLY for short headlines or invitations.
 
-[H] CHAPTER 4: SPACING SCIENCE
-- [BLUE] LEADING: Line height. Too little = clustered. Too much = disconnected.
-- [BLUE] TRACKING: Character spacing.
-- [BLUE] KERNING: Space between two specific letters (like 'A' and 'V').
-[RED] PRO TIP: Tighten tracking for headlines to make them look "heavier" and authoritative.
+[H] CHAPTER 4: THE VERTICAL RHYTHM (LEADING)
+Leading is the space between lines of text.
+[BLUE] THE 1.5x RULE: For body text on the web, use a leading of 140%-160% of the font size.
 
-[H] CHAPTER 5: VISUAL HIERARCHY
-[GREEN] Hierarchy is a map for the eye.
-1. Large, Bold Headlines (Size 1).
-2. Medium, Grey Subheadings (Size 2).
-3. Clear, 16px-18px Body text (Size 3).
+[H] CHAPTER 5: THE HORIZONTAL RHYTHM (KERNING & TRACKING)
+[BLUE] KERNING: Adjusting the space between two specific letters.
+[BLUE] TRACKING: Adjusting the space across a whole paragraph.
+[RED] PRO TIP: Increase tracking for ALL-CAPS headlines to create a high-luxury, premium vibe.
 
-[H] CHAPTER 6: FONT PAIRING PROTOCOLS
-Contrast is the goal.
-[BLUE] RULE: Pair a "Strong Geometric Sans" with a "Classic Serif." 
-[RED] WARNING: Never use three different font families. Use one "Font Family" (with weights like Light, Regular, Bold) to maintain professional consistency.
+[H] CHAPTER 6: SCALE AND MODULAR GRIDS
+Use a modular scale (e.g., 1.25 Ratio) to define your font sizes:
+- 16px (Body)
+- 20px (H4)
+- 25px (H3)
+- 31px (H2)
+- 39px (H1)
+This ensures mathematical harmony in your layout.
+                        `,
+                        "Font_Pairing_Secrets.pdf": `
+[H] THE ART OF FONT PAIRING: STEP-BY-STEP
+[H] =====================================
 
-[H] CHAPTER 7: WEB VS PRINT TYPE
-On high-resolution Retina screens, Thin and Light fonts look elegant. On low-resolution screens, they disappear. Always choose fonts with a large X-Height for mobile app design.
+[H] STEP 1: ESTABLISH CONTRAST
+Never pair two fonts that look "almost the same" (like two different Sans-Serifs). It looks like a mistake.
+[GREEN] SUCCESSFUL PAIR: A Geometric Sans (Header) + A Humanist Serif (Body).
 
-[H] CONCLUSION
-Type carries voice. A thin font whispers; a bold slab font screams. Use your voice wisely.
+[H] STEP 2: ASSIGN ROLES
+Pick one "Workhorse" font family that has many weights (Thin, Light, Regular, Bold, Black). Use this for 90% of your UI.
+
+[H] STEP 3: LIMIT YOUR TOOLS
+[RED] WARNING: Never use more than 3 fonts in a single project. 2 is usually the professional standard.
+                        `,
+                        "Typography_Checklist.pdf": `
+[H] THE TYPOGRAPHY QUALITY CHECKLIST
+[H] ================================
+
+[BLUE] 1. Is the line height comfortable? (1.5x)
+[BLUE] 2. Is the line length too long? (Max 70 characters)
+[BLUE] 3. Does the Headline stand out enough from the Body?
+[BLUE] 4. Is the font readable at small sizes?
+[BLUE] 5. Are there any "Widows" or "Orphans" in the text block?
+                        `
+                    }
+                },
+                {
+                    id: 103,
+                    title: "Composition, Grids & UI Principles",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/M8afKKlwJAk",
+                    related_videos: [
+                        { title: "Understanding White Space", url: "https://www.youtube.com/watch?v=xyIXxSOXAlo" },
+                        { title: "Layout Design Mastery", url: "https://www.youtube.com/watch?v=M8afKKlwJAk" }
+                    ],
+                    resources: ["Book_3_Composition_Guide.pdf", "UI_UX_Principles_Checklist.pdf", "Grid_Layout_Schematics.pdf"],
+                    pdf_content: {
+                        "Book_3_Composition_Guide.pdf": `
+[H] COMPOSITION & GRID SYSTEMS IN DESIGN (VOLUME 1)
+[H] =====================================
+
+[H] CHAPTER 1: THE RULE OF THIRDS
+Divide your canvas into a 3x3 grid. Placing key elements at the intersections creates more tension and interest.
+
+[H] CHAPTER 2: THE GOLDEN RATIO (1.618)
+The mathematical pattern found in nature. In design, we use it to create perfectly balanced proportions.
+
+[H] CHAPTER 3: GRID SYSTEMS
+[BLUE] THE 12-COLUMN GRID: The industry standard for web design.
+[BLUE] THE 8PT SPACING SYSTEM: In UI, every gap should be a multiple of 8px (8, 16, 24, 32...).
+
+[H] CHAPTER 4: BALANCE AND SYMMETRY
+- [H] SYMMETRICAL: Stability, trust.
+- [H] ASYMMETRICAL: Movement, creativity.
+
+[H] CHAPTER 5: WHITE SPACE (NEGATIVE SPACE)
+[RED] CRITICAL TIP: White space is not "empty space"—it is a functional element. 
+                        `,
+                        "UI_UX_Principles_Checklist.pdf": `
+[H] THE UI/UX PROFESSIONAL CHECKLIST
+[H] ===============================
+
+[H] 1. VISUAL HIERARCHY
+Does the most important element (The Button) stand out the most?
+
+[H] 2. PROXIMITY
+Related items should be grouped together. 
+
+[H] 3. CONSISTENCY
+Buttons that do the same thing should look the same.
+
+[H] 4. FEEDBACK
+When a user clicks, did something happen?
+                        `,
+                        "Grid_Layout_Schematics.pdf": `
+[H] COMMON WEB GRID SCHEMATICS
+[H] ==========================
+
+- [BLUE] Single Column: For focused articles.
+- [BLUE] Split Screen (50/50): For landing pages (Image + CTA).
+- [BLUE] Card Grid (3x3): For portfolios and dashboards.
+- [BLUE] Sidebar Layout: For complex management tools.
                         `
                     }
                 }
             ]
         },
         {
-            title: "Module 2: Adobe Photoshop Deep-Dive",
+            title: "Module 2: Adobe Photoshop Expert Course",
             lessons: [
                 {
                     id: 201,
-                    title: "Photoshop Interface & Mastering Layers",
+                    title: "Interface, Layer Logic & Smart Objects",
                     type: "video",
-                    src: "https://www.youtube.com/embed/aNpO6G72O3w",
-                    resources: ["Book_3_Photoshop_Bible.pdf"],
+                    src: "https://www.youtube.com/embed/FSy_4xEHXTM",
+                    related_videos: [
+                        { title: "Managing Layers Effectively", url: "https://www.youtube.com/watch?v=FSy_4xEHXTM" }
+                    ],
+                    resources: ["Book_4_Photoshop_Fundamentals.pdf", "Smart_Objects_InDepth.pdf"],
                     pdf_content: {
-                        "Book_3_Photoshop_Bible.pdf": `
-[H] THE PHOTOSHOP 2024 MASTER BIBLE
-[H] ===============================
+                        "Book_4_Photoshop_Fundamentals.pdf": `
+[H] PHOTOSHOP EXPERT: CHAPTER 1 - THE FUNDAMENTALS
+[H] ==============================================
 
-[H] CHAPTER 1: WHY PHOTOSHOP?
-Photoshop is the world's most powerful image editor. It is a "Raster" tool, meaning it works with a finite number of pixels.
+[H] CHAPTER 1: RASTER VS VECTOR
+Photoshop is a pixel editor. Every image is a grid of colored squares. 
 
-[H] CHAPTER 2: RESOLUTION AND DPI
-Understanding the quality.
-- [BLUE] 72 DPI: Screen resolution.
-- [BLUE] 300 DPI: Print resolution.
-[RED] RULE: Always start at 300 DPI. You can always go down to 72, but you can never "fake" pixels going from 72 up to 300.
+[H] CHAPTER 2: THE POWER OF SMART OBJECTS
+[RED] NEVER SCALE A NORMAL LAYER.
+[GREEN] SOLUTION: Right Click > Convert to Smart Object. 
 
-[H] CHAPTER 3: NON-DESTRUCTIVE WORKFLOW
-This is what separates pros from amateurs.
-1. [H] LAYER MASKS: Use them to hide pixels, not delete them.
-2. [H] ADJUSTMENT LAYERS: Add Curves, Levels, and Hue/Saturation as layers so you can change them later.
-3. [H] SMART OBJECTS: Convert your images to Smart Objects so they don't pixelate when you scale them down and back up.
+[H] CHAPTER 3: NON-DESTRUCTIVE EDITING
+- [BLUE] USE LAYER MASKS.
+- [BLUE] USE ADJUSTMENT LAYERS.
 
-[H] CHAPTER 4: MASTERING SELECTION
-- [BLUE] THE LASSO: For rough sketches.
-- [BLUE] THE OBJECT SELECTION: AI-powered magic.
-- [BLUE] THE PEN TOOL: The king of accuracy. Learn the paths, handles, and anchor points.
+[H] CHAPTER 4: LAYER BLENDING MODES
+1. [BLUE] MULTIPLY: Darkens. 
+2. [BLUE] SCREEN: Lightens. 
+3. [BLUE] OVERLAY: Blends light and dark.
+                        `,
+                        "Smart_Objects_InDepth.pdf": `
+[H] SMART OBJECTS: THE DESIGNER'S SAFETY NET
+[H] =========================================
 
-[H] CHAPTER 5: LAYER BLENDING MODES
-- [BLUE] MULTIPLY: Removes whites (Perfect for adding shadows).
-- [BLUE] SCREEN: Removes blacks (Perfect for fire and lighting effects).
-- [BLUE] OVERLAY: Blends colors into the background.
+[H] 1. LINKED VS EMBEDDED
+[BLUE] EMBEDDED: Stored inside the PSD file.
+[BLUE] LINKED: Saved as a separate file. Good for updating one logo across multiple designs.
 
-[H] CHAPTER 6: RAW COLOR GRADING
-Using the [BLUE] Camera Raw Filter. This is where the world's best photographers edit. Master the "Color Mixer" and "Calibration" tabs to create a unique color style.
-
-[H] CHAPTER 7: EXPORTING ASSETS
-- .PSD: The working file.
-- .PNG: Transparent background.
-- .WEBP: Ultra-small size for fast websites.
-- .JPG: Standard for photography.
-
-[H] FINAL VERDICT: Workflow is more important than tools. Keep your layers named and organized!
+[H] 2. SMART FILTERS
+When you apply a filter (like Blur) to a Smart Object, it becomes a "Smart Filter". You can change the blur amount or mask out certain parts of the filter later.
                         `
                     }
                 },
                 {
                     id: 202,
-                    title: "Advanced Masking & Compositing",
+                    title: "Advanced Selection & The Pen Tool",
                     type: "video",
-                    src: "https://www.youtube.com/embed/aNpO6G72O3w",
-                    resources: ["Book_4_Masking_Expert.pdf"],
+                    src: "https://www.youtube.com/embed/5kAQUNFZJXY",
+                    related_videos: [
+                        { title: "Pen Tool Masterclass", url: "https://www.youtube.com/watch?v=5kAQUNFZJXY" }
+                    ],
+                    resources: ["Book_5_Pen_Tool_Mastery.pdf", "Selection_Tools_CheatSheet.pdf", "Vector_Masking_Protocol.pdf"],
                     pdf_content: {
-                        "Book_4_Masking_Expert.pdf": `
-[H] THE ADVANCED MASKING CASE STUDIES
+                        "Book_5_Pen_Tool_Mastery.pdf": `
+[H] MASTERING THE PEN TOOL (THE PRO WAY)
+[H] =====================================
+
+[H] CHAPTER 1: WHY THE PEN TOOL?
+It uses math (Bezier Curves) to create infinitely sharp, perfect paths. 
+
+[H] CHAPTER 2: ANCHORS AND HANDLES
+- [BLUE] ANCHOR POINT: The corners.
+- [BLUE] HANDLES: The curves.
+[RED] THE CORE TRICK: Hold ALT/Option while clicking an anchor to break the handle.
+
+[H] CHAPTER 3: PATHS VS SHAPES
+[GREEN] PRO TIP: Use Ctrl+Enter to turn any finished path into a selection.
+                        `,
+                        "Selection_Tools_CheatSheet.pdf": `
+[H] PHOTOSHOP SELECTION FIELD GUIDE
+[H] ===============================
+1. [BLUE] OBJECT SELECTION (W)
+2. [BLUE] QUICK SELECTION (W)
+3. [BLUE] MAGNETIC LASSO
+4. [BLUE] COLOR RANGE
+                        `,
+                        "Vector_Masking_Protocol.pdf": `
+[H] VECTOR MASKING FOR PRODUCT RETOUCHING
+[H] =====================================
+
+[H] STEPS:
+1. Create a path with the Pen Tool.
+2. Hold Cmd/Ctrl and click the "Mask" button in the layers panel.
+[GREEN] RESULT: A razor-sharp edge that is mathematically defined. Perfect for high-end product photography.
+                        `
+                    }
+                },
+                {
+                    id: 203,
+                    title: "Skin Retouching & Object Removal",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/0q_GxbuEr_M",
+                    related_videos: [
+                        { title: "Professional Skin Retouching", url: "https://www.youtube.com/watch?v=0q_GxbuEr_M" },
+                        { title: "Removing Objects (AI)", url: "https://www.youtube.com/watch?v=FSy_4xEHXTM" }
+                    ],
+                    resources: ["Book_6_Retouching_Manual.pdf", "Skin_Frequency_Separation.pdf", "Advanced_Healing_Tactics.pdf"],
+                    pdf_content: {
+                        "Book_6_Retouching_Manual.pdf": `
+[H] THE PROFESSIONAL RETOUCHING MANUAL
 [H] ==================================
 
-[H] CHAPTER 1: THE CORE LOGIC
-White Reveals. Black Conceals. 
+[H] CHAPTER 1: THE CLONE STAMP (S)
+[GREEN] PRO TIP: Set the Opacity to 30% for a natural blend.
 
-[H] CHAPTER 2: SELECT AND MASK WORKSPACE
-The modern way to select hair.
-1. Use [BLUE] Select Subject.
-2. Select the [BLUE] Refine Edge Brush.
-3. Paint around the hair edges.
-4. Output to [GREEN] Layer Mask.
+[H] CHAPTER 2: THE HEALING BRUSH (J)
+Matches the texture AND the lighting.
 
-[H] CHAPTER 3: CHANNEL MASKING
-How to select impossible things like smoke, clouds, and glass.
-- Use the Channels panel to find the highest contrast channel.
-- Duplicate and use [BLUE] Levels (Ctrl+L) to make the object absolute white and background absolute black.
+[H] CHAPTER 3: CONTENT-AWARE FILL
+Use Edit > Content-Aware Fill for complex objects.
+                        `,
+                        "Skin_Frequency_Separation.pdf": `
+[H] SKIN RETOUCHING: FREQUENCY SEPARATION
+[H] =====================================
+1. [BLUE] HIGH FREQUENCY: Texture.
+2. [BLUE] LOW FREQUENCY: Color.
+                        `,
+                        "Advanced_Healing_Tactics.pdf": `
+[H] ADVANCED TEXTURE HEALING
+[H] =========================
+- [BLUE] Use the Patch Tool for large skin areas.
+- [BLUE] Use the Spot Healing Brush with "Content-Aware" checked.
+- [RED] Always retouch on a NEW BLANK LAYER with "Sample All Layers" active.
+                        `
+                    }
+                },
+                {
+                    id: 204,
+                    title: "Advanced Compositing & Light Blending",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/x5TbF8Tb9U0",
+                    related_videos: [
+                        { title: "Compositing Workflow", url: "https://www.youtube.com/watch?v=x5TbF8Tb9U0" }
+                    ],
+                    resources: ["Book_7_Compositing_Secrets.pdf", "Blending_Light_Guide.pdf", "Shadow_Physics_Workbook.pdf"],
+                    pdf_content: {
+                        "Book_7_Compositing_Secrets.pdf": `
+[H] PHOTO COMPOSITING: WORLD BUILDING
+[H] =================================
 
-[H] CHAPTER 4: LUMINOSITY MASKS
-For cinematic lighting. Targeting the "Brightest" 20% of an image to add a glow effect without affecting the shadows.
+[H] CHAPTER 1: MATCHING PERSPECTIVE
+Always identify the "Vanish Points".
 
-[H] CHAPTER 5: BLEND IF (THE PRO SECRET)
-Hidden in Layer Styles.
-- Slide the "This Layer" slider to remove darks or lights from the active layer.
-- [RED] Hold ALT and split the slider for a smooth, feathered transition.
+[H] CHAPTER 2: MATCHING LIGHT DIRECTION
+ shadows must align!
 
-[H] CHAPTER 6: MATCHING COLORS IN COMPOSITES
-Image A never matches Image B. 
-1. Use the [BLUE] Match Color tool (Image > Adjustments).
-2. Or use a [BLUE] Curves Adjustment Layer and match the Black and White points of both images.
-
-[H] CHAPTER 7: PERSPECTIVE AND HORIZON
-If your foreground image has a different horizon line than your background, the brain will instantly know it's fake. Always match the "Vanish points".
-
-[H] CONCLUSION: THE ART OF THE MASK
-A perfect composite is one where you cannot see the edge of the mask. Soften your edges and match your grain!
+[H] CHAPTER 3: ADDING ATMOSPHERE
+Add fog, dust, or lens flares between the layers.
+                        `,
+                        "Blending_Light_Guide.pdf": `
+[H] THE ART OF BLENDING LIGHT & COLOR
+[H] ==================================
+1. [BLUE] THE CURVES ADJUSTMENT.
+2. [BLUE] COLOR BALANCE.
+                        `,
+                        "Shadow_Physics_Workbook.pdf": `
+[H] THE PHYSICS OF SHADOWS
+[H] =======================
+- [BLUE] OCCLUSION SHADOW: Very dark, very sharp, where object touches ground.
+- [BLUE] CONTACT SHADOW: Soft, slightly larger.
+- [BLUE] CAST SHADOW: Long shadow based on sun position.
                         `
                     }
                 }
             ]
         },
         {
-            title: "Module 3: Illustrator Mastery (Vector)",
+            title: "Module 3: Adobe Illustrator Mastery (Vector)",
             lessons: [
                 {
                     id: 301,
-                    title: "The Logic of Vectors (Full Book)",
+                    title: "The Logic of Vectors & Shape Builder",
                     type: "video",
-                    src: "https://www.youtube.com/embed/UwHopwh0L_k",
-                    resources: ["Book_5_Illustrator_Manual.pdf"],
+                    src: "https://www.youtube.com/embed/AMqc3sRQ_-M",
+                    related_videos: [
+                        { title: "Shape Builder Mastering", url: "https://www.youtube.com/watch?v=AMqc3sRQ_-M" }
+                    ],
+                    resources: ["Book_8_Vector_Logic.pdf", "Shape_Builder_Workflow.pdf", "Pathfinder_Vs_ShapeBuilder.pdf"],
                     pdf_content: {
-                        "Book_5_Illustrator_Manual.pdf": `
-[H] THE ADOBE ILLUSTRATOR COMPLETE MANUAL
-[H] ======================================
+                        "Book_8_Vector_Logic.pdf": `
+[H] ADOBE ILLUSTRATOR: VECTOR ARCHITECTURE
+[H] ========================================
 
-[H] CHAPTER 1: THE MATH OF DESIGN
-Vectors are mathematical paths. Points and Lines.
-[GREEN] THE SUPERPOWER: You can scale a vector logo from a business card to a sky-scraping billboard without losing any quality.
+[H] CHAPTER 1: THE INFINITE SCALE
+[GREEN] THE SUPERPOWER: Scale infinitely without quality loss.
 
-[H] CHAPTER 2: THE TOOLSET
-- [BLUE] P: Pen Tool (The backbone of Illustrator).
-- [BLUE] A: Direct Selection (To move individual points).
-- [BLUE] V: Selection Tool (To move groups).
-- [BLUE] M: Rectangle Tool.
+[H] CHAPTER 2: ANCHORS VS HANDLES
+[RED] PRO TIP: The less anchor points, the smoother the design.
 
-[H] CHAPTER 3: THE SHAPE BUILDER (SHIFT+M)
-Professionals don't draw; they build.
-1. Position two shapes together.
-2. Select both.
-3. Use Shift+M to drag and merge them OR hold Alt to subtract.
-[RED] LOGO SECRET: 99% of professional logos are built using simple circles and the Shape Builder.
+[H] CHAPTER 3: THE PEN TOOL IN ILLUSTRATOR
+Use the [BLUE] Direct Selection Tool (A) to perfect curves.
+                        `,
+                        "Shape_Builder_Workflow.pdf": `
+[H] THE SHAPE BUILDER (SHIFT+M): LOGO SECRETS
+[H] =========================================
+[BLUE] STEP 1: Overlap circles.
+[BLUE] STEP 2: Click and drag to merge.
+[BLUE] STEP 3: Alt+Click to subtract.
+                        `,
+                        "Pathfinder_Vs_ShapeBuilder.pdf": `
+[H] PATHFINDER VS SHAPE BUILDER
+[H] ===========================
+- [BLUE] PATHFINDER: Static, mathematical, great for final cleanup.
+- [BLUE] SHAPE BUILDER: Dynamic, visual, great for creation.
+                        `
+                    }
+                },
+                {
+                    id: 302,
+                    title: "Logo Design Process (Start to Finish)",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/TF4_T7yMTOA",
+                    related_videos: [
+                        { title: "Building a Dynamic Brand", url: "https://www.youtube.com/watch?v=TF4_T7yMTOA" }
+                    ],
+                    resources: ["Book_9_Logo_Design_Bible.pdf", "Brand_Identity_Guidelines.pdf"],
+                    pdf_content: {
+                        "Book_9_Logo_Design_Bible.pdf": `
+[H] THE LOGO DESIGNER'S BIBLE: STEP-BY-STEP
+[H] =======================================
 
-[H] CHAPTER 4: PATHFINDER VS SHAPE BUILDER
-Pathfinder is for permanent operations. Shape Builder is for fluid, live creation. Use Pathfinder for final file cleanup.
-
-[H] CHAPTER 5: TYPOGRAPHY ON PATHS
-- Type along a circle (Great for badges).
-- Type inside a shape (Great for complex layouts).
-- [BLUE] Create Outlines (Ctrl+Shift+O): Turning text into editable shapes.
-
-[H] CHAPTER 6: THE GRADIENT MESH
-Photorealism in a vector world. Create mesh points to add realistic lighting, shadows, and reflections to flat shapes.
-
-[H] CHAPTER 7: PACKAGING AND HANDOFF
-- [H] AI: The project source.
-- [H] EPS: For high-end printing.
-- [H] SVG: For modern website icons.
-- [H] PDF: The universal preview.
-
-[H] CONCLUSION: VECTOR IS FOREVER
-Mastering paths makes you a true designer. Photoshop is for pictures; Illustrator is for BRANDING.
+[H] CHAPTER 1: THE BRIEF
+[H] CHAPTER 2: SKETCHING
+[H] CHAPTER 3: VECTORIZATION
+[H] CHAPTER 4: COLORING
+[H] CHAPTER 5: THE PRESENTATION
+                        `,
+                        "Brand_Identity_Guidelines.pdf": `
+[H] CREATING A BRAND IDENTITY SYSTEM
+[H] ================================
+- [BLUE] Primary Logo.
+- [BLUE] Secondary Mark (Monogram).
+- [BLUE] Typography System.
+- [BLUE] Color Palette.
+- [BLUE] Imagery Style.
+                        `
+                    }
+                },
+                {
+                    id: 303,
+                    title: "Advanced Typography & Type on Path",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/mZH8Adm7PMg",
+                    related_videos: [
+                        { title: "Mastering Type on Paths", url: "https://www.youtube.com/watch?v=mZH8Adm7PMg" }
+                    ],
+                    resources: ["Book_10_Advanced_Type.pdf", "Custom_Font_Creation_Basics.pdf"],
+                    pdf_content: {
+                        "Book_10_Advanced_Type.pdf": `
+[H] ILLUSTRATOR TYPOGRAPHY SECRETS
+[H] ==============================
+- [BLUE] Type on a Circle.
+- [BLUE] Creating Outlines (Ctrl+Shift+O).
+- [BLUE] Touch Type Tool.
+                        `,
+                        "Custom_Font_Creation_Basics.pdf": `
+[H] CUSTOM LETTERING BASICS
+[H] ========================
+1. Type a word in a standard font.
+2. Convert to Outlines.
+3. Use the [BLUE] Direct Selection Tool to pull anchor points and create custom ligatures.
                         `
                     }
                 }
@@ -287,47 +532,89 @@ Mastering paths makes you a true designer. Photoshop is for pictures; Illustrato
             lessons: [
                 {
                     id: 401,
-                    title: "Product Design & Prototyping (Full Book)",
+                    title: "Figma UI Basics & Web Layout",
                     type: "video",
-                    src: "https://www.youtube.com/embed/bI6q16ffdgQ",
-                    resources: ["Book_6_Figma_Design_Bible.pdf"],
+                    src: "https://www.youtube.com/embed/9EPTM91TBDU",
+                    related_videos: [
+                        { title: "UI Components Basics", url: "https://www.youtube.com/watch?v=9EPTM91TBDU" }
+                    ],
+                    resources: ["Book_11_Figma_Mastery.pdf", "Auto_Layout_Secrets.pdf", "Design_System_Fundamentals.pdf"],
                     pdf_content: {
-                        "Book_6_Figma_Design_Bible.pdf": `
-[H] THE FIGMA PRODUCT DESIGN BIBLE
+                        "Book_11_Figma_Mastery.pdf": `
+[H] FIGMA FOR UI DESIGNERS: THE STARTING POINT
+[H] ==========================================
+[BLUE] FRAMES VS GROUPS.
+[BLUE] STYLES AND LIBRARIES.
+[BLUE] COMPONENTS (CMD+ALT+K).
+                        `,
+                        "Auto_Layout_Secrets.pdf": `
+[H] AUTO-LAYOUT (SHIFT+A): THE SUPERPOWER
+[H] =====================================
+- [H] HUG.
+- [H] FILL.
+- [H] FIXED.
+                        `,
+                        "Design_System_Fundamentals.pdf": `
+[H] BUILDING YOUR FIRST DESIGN SYSTEM
+[H] =================================
+- [BLUE] Define Color Styles.
+- [BLUE] Define Text Styles.
+- [BLUE] Define Icon Library.
+- [BLUE] Set Spacing Tokens (8pt Grid).
+                        `
+                    }
+                },
+                {
+                    id: 402,
+                    title: "Prototyping & Smart Animate",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/oAZEttTI0Xw",
+                    related_videos: [
+                        { title: "Advanced Figma Prototyping", url: "https://www.youtube.com/watch?v=oAZEttTI0Xw" }
+                    ],
+                    resources: ["Book_12_Prototyping_Manual.pdf", "Microinteractions_Guide.pdf"],
+                    pdf_content: {
+                        "Book_12_Prototyping_Manual.pdf": `
+[H] FIGMA PROTOTYPING: BRINGING DESIGN TO LIFE
+[H] ==========================================
+1. [BLUE] THE PROTOTYPE TAB.
+2. [BLUE] SMART ANIMATE.
+3. [BLUE] TRIGGERS.
+                        `,
+                        "Microinteractions_Guide.pdf": `
+[H] DESIGNING MICROINTERACTIONS
+[H] ===========================
+- [BLUE] The Button Pop: Use a scale change on hover.
+- [BLUE] The Page Slide: Smooth transition between mobile frames.
+- [BLUE] The Tab Switch: Animate the active underline.
+                        `
+                    }
+                },
+                {
+                    id: 403,
+                    title: "Portfolio Building & Landing Your First Job",
+                    type: "video",
+                    src: "https://www.youtube.com/embed/DZ2bB8tL4O0",
+                    related_videos: [
+                        { title: "Designing a Creative Portfolio", url: "https://www.youtube.com/watch?v=DZ2bB8tL4O0" },
+                        { title: "Design Resume Tips", url: "https://www.youtube.com/watch?v=sFY1_tEXcOs" }
+                    ],
+                    resources: ["Book_13_Portfolio_Strategy.pdf", "Designer_Interview_Questions.pdf"],
+                    pdf_content: {
+                        "Book_13_Portfolio_Strategy.pdf": `
+[H] THE ULTIMATE DESIGN PORTFOLIO STRATEGY
+[H] ======================================
+- [H] QUALITY OVER QUANTITY.
+- [H] THE CASE STUDY (THE "WHY").
+- [H] WHERE TO HOST?
+                        `,
+                        "Designer_Interview_Questions.pdf": `
+[H] TOP DESIGN INTERVIEW QUESTIONS
 [H] ==============================
-
-[H] CHAPTER 1: THE UI DESIGN REVOLUTION
-Figma is a collaborative tool. It is where logic meets layout. Unlike Photoshop, it's built specifically for building apps and websites.
-
-[H] CHAPTER 2: AUTO-LAYOUT (THE MASTER SKILL)
-[BLUE] SHIFT + A: This simulates how code actually works. 
-If you add text to a button, the button grows automatically. Master Padding, Gap, and Alignment.
-- [GREEN] Fixed vs Hue vs Fill: The three modes of resizing.
-
-[H] CHAPTER 3: COMPONENTS AND VARIANTS
-[BLUE] ATOMIC DESIGN:
-1. ATOMS: Colors and Icons.
-2. MOLECULES: Buttons and Input fields.
-3. ORGANISMS: Headers and Sidebars.
-[RED] PRO TIP: Use Variants to manage multiple button states (Hover, Click, Error) in one clean container.
-
-[H] CHAPTER 4: CONSTRAINTS AND GRIDS
-How to make an app look good on iPhone and Desktop.
-- [BLUE] THE 8PT GRID: The industry standard for spacing. Every gap should be a multiple of 8 (8, 16, 24, 32).
-
-[H] CHAPTER 5: INTERACTIVE PROTOTYPING
-- [BLUE] SMART ANIMATE: Intelligently moves layers between frames.
-- [BLUE] FLOWS: Simulating the user journey through the app.
-
-[H] CHAPTER 6: DESIGN SYSTEMS
-Building a library of styles that a whole company can use.
-- [BLUE] LOCAL VARIABLES (Figma 2024): The new way to handle font sizes and colors as "Tokens" that update everywhere instantly.
-
-[H] CHAPTER 7: THE DEV-HANDOFF
-Figma's [BLUE] Dev Mode allows programmers to copy your CSS properties directly. 
-
-[H] CONCLUSION: USER-CENTRIC DESIGN
-Figma is only the tool. The real work is understanding the USER. Research, Wireframe, Prototype, then Design.
+1. Walk me through your design process.
+2. How do you handle critical feedback?
+3. Why did you choose these fonts for this project?
+4. How do you ensure your designs are accessible?
                         `
                     }
                 }

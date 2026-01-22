@@ -154,6 +154,28 @@ const App = {
             resList.innerHTML = '<span style="color:#666">No resources for this lesson.</span>';
         }
 
+        // Render Related Videos
+        const relatedDiv = document.getElementById('related-videos');
+        if (relatedDiv) {
+            relatedDiv.innerHTML = '';
+            if (foundLesson.related_videos && foundLesson.related_videos.length > 0) {
+                foundLesson.related_videos.forEach(vid => {
+                    const link = document.createElement('a');
+                    link.href = vid.url;
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    link.style.color = "var(--neon)";
+                    link.style.fontSize = "0.85rem";
+                    link.style.marginBottom = "8px";
+                    link.style.textDecoration = "none";
+                    link.innerHTML = `<i class="fab fa-youtube"></i> ${vid.title}`;
+                    relatedDiv.appendChild(link);
+                });
+            } else {
+                relatedDiv.innerHTML = '<span style="color:#666">No extra videos.</span>';
+            }
+        }
+
         this.state.currentLesson = lessonId;
         this.updateProgress();
 
