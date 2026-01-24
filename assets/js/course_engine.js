@@ -79,7 +79,7 @@ const App = {
     startPayment: function () {
         // 1. Razorpay Test
         const options = {
-            "key": "rzp_test_1DP5mmOlF5G5ag", // REPLACE WITH LIVE KEY
+            "key": "rzp_live_S7bBrrbQI5Bnrp", // LIVE KEY UPDATED
             "amount": COURSE_DB.info.price,
             "currency": "INR",
             "name": "Design The Imagination",
