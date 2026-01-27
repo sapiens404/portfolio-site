@@ -679,135 +679,31 @@ img {
     transition: all 0.3s ease;
 }
 
+/* Unified Blue Neon Skills */
+.skill-item {
+    border: 2px solid #0099ff;
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.4), inset 0 0 10px rgba(0, 153, 255, 0.1);
+    animation: bluePulse 2s infinite ease-in-out alternate;
+}
+
 .skill-item:hover {
+    box-shadow: 0 0 30px rgba(0, 153, 255, 0.7), inset 0 0 15px rgba(0, 153, 255, 0.2);
     transform: translateY(-5px);
 }
 
-/* Neon Cyan - Photoshop */
-.neon-cyan {
-    border: 2px solid #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
-    animation: neonPulseCyan 2s infinite ease-in-out alternate;
-}
-
-.neon-cyan:hover {
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.3);
-}
-
-@keyframes neonPulseCyan {
+@keyframes bluePulse {
     from {
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 153, 255, 0.4), inset 0 0 10px rgba(0, 153, 255, 0.1);
     }
 
     to {
-        box-shadow: 0 0 35px rgba(0, 255, 255, 0.8), inset 0 0 25px rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 25px rgba(0, 153, 255, 0.6), inset 0 0 15px rgba(0, 153, 255, 0.2);
     }
-}
-
-.neon-cyan .skill-name {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
-
-.neon-cyan .progress {
-    background: linear-gradient(90deg, #00ffff, #00cccc);
-    box-shadow: 0 0 10px #00ffff;
-}
-
-/* Neon Magenta - Illustrator */
-.neon-magenta {
-    border: 2px solid #ff00ff;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.2);
-    animation: neonPulseMagenta 2s infinite ease-in-out alternate;
-}
-
-.neon-magenta:hover {
-    box-shadow: 0 0 40px rgba(255, 0, 255, 0.8), inset 0 0 30px rgba(255, 0, 255, 0.3);
-}
-
-@keyframes neonPulseMagenta {
-    from {
-        box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.2);
-    }
-
-    to {
-        box-shadow: 0 0 35px rgba(255, 0, 255, 0.8), inset 0 0 25px rgba(255, 0, 255, 0.3);
-    }
-}
-
-.neon-magenta .skill-name {
-    color: #ff00ff;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
-}
-
-.neon-magenta .progress {
-    background: linear-gradient(90deg, #ff00ff, #cc00cc);
-    box-shadow: 0 0 10px #ff00ff;
-}
-
-/* Neon Yellow - Figma */
-.neon-yellow {
-    border: 2px solid #ffff00;
-    box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), inset 0 0 20px rgba(255, 255, 0, 0.2);
-    animation: neonPulseYellow 2s infinite ease-in-out alternate;
-}
-
-.neon-yellow:hover {
-    box-shadow: 0 0 40px rgba(255, 255, 0, 0.8), inset 0 0 30px rgba(255, 255, 0, 0.3);
-}
-
-@keyframes neonPulseYellow {
-    from {
-        box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), inset 0 0 20px rgba(255, 255, 0, 0.2);
-    }
-
-    to {
-        box-shadow: 0 0 35px rgba(255, 255, 0, 0.8), inset 0 0 25px rgba(255, 255, 0, 0.3);
-    }
-}
-
-.neon-yellow .skill-name {
-    color: #ffff00;
-    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
-}
-
-.neon-yellow .progress {
-    background: linear-gradient(90deg, #ffff00, #cccc00);
-    box-shadow: 0 0 10px #ffff00;
-}
-
-/* Neon Green - Typography */
-.neon-green {
-    border: 2px solid #00ff66;
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), inset 0 0 20px rgba(0, 255, 102, 0.2);
-    animation: neonPulseGreen 2s infinite ease-in-out alternate;
-}
-
-.neon-green:hover {
-    box-shadow: 0 0 40px rgba(0, 255, 102, 0.8), inset 0 0 30px rgba(0, 255, 102, 0.3);
-}
-
-@keyframes neonPulseGreen {
-    from {
-        box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), inset 0 0 20px rgba(0, 255, 102, 0.2);
-    }
-
-    to {
-        box-shadow: 0 0 35px rgba(0, 255, 102, 0.8), inset 0 0 25px rgba(0, 255, 102, 0.3);
-    }
-}
-
-.neon-green .skill-name {
-    color: #00ff66;
-    text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
-}
-
-.neon-green .progress {
-    background: linear-gradient(90deg, #00ff66, #00cc55);
-    box-shadow: 0 0 10px #00ff66;
 }
 
 .skill-name {
+    color: #00d9ff;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
     display: block;
     margin-bottom: 0.75rem;
     font-weight: 700;
@@ -815,15 +711,9 @@ img {
     letter-spacing: 1px;
 }
 
-.progress-bar {
-    width: 100%;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    overflow: hidden;
-}
-
 .progress {
+    background: linear-gradient(90deg, #0099ff, #0066ff);
+    box-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
     height: 100%;
     border-radius: 6px;
     transition: width 1s ease-in-out;
