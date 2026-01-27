@@ -1,7 +1,7 @@
 const COURSE_DB = {
     info: {
         title: "Design The Imagination | Graphic & UI/UX Mastery",
-        price: 1300, // in paise (₹13)
+        price: 300, // in paise (₹3)
         description: "Master Photoshop, Illustrator, Figma, and Design Theory in 4 weeks.",
         upi_id: "9473074602@ybl"
     },
